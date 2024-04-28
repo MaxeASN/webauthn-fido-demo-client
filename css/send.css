@@ -1,0 +1,26 @@
+#address-confirm {
+    margin-top: 20px;
+    background: var(--up-bg);
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--up-text-primary);
+    line-height: 26px;
+}
+
+#amount-confirm {
+    margin-top: 20px;
+    background: var(--up-bg);
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--up-text-primary);
+    line-height: 26px;
+}
+
+#confirm-button-yes:hover {
+    background-color: #5e30f6;
+}
+

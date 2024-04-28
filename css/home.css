@@ -1,0 +1,229 @@
+#page-index .coin-box .add-token-box {
+    position: absolute;
+    bottom: 43%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: var(--up-bg);
+    box-shadow: inset 1px 1px 3px var(--up-bg-solid);
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#receive-dialog .transaction-details-pairs {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.user-container {
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    width: 680;
+    height: 150px;
+    /* background-color: #b0e0e6; */
+    padding: 10px;
+} 
+.user-icon{
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    bottom: -30px;
+    left:-14px;
+    border-radius: 70px;
+    border: 7px solid;
+    /* background-color: rgba(0, 0, 0, 0.39); */
+    background-image: url(../img/icons/user-icon.jpg);
+    background-size: cover;
+    
+}
+.user-basic-info{
+    position: absolute;
+    width: 745px;
+    height: 80px;
+    bottom: 36px;
+    left:40px;
+    border-radius: 15px;
+    border: 1px solid;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    
+}
+.user-nickname{
+    position: relative;
+    width: 450px;
+    height: 23px;
+    left: 150px;
+    top: 12px;
+    /* background-color: blue; */
+}
+.user-fido-id{
+    position: relative;
+    width: 450px;
+    height: 23px;
+    left: 150px;
+    top: 22px;
+    /* background-color: brown; */
+}
+.user-font{
+    position: relative;
+    float: left;
+    /* font */
+}
+.dapp-icon{
+    width: 80px;
+    height: 80px;
+    background-color:#28a745;
+    border: 1px solid;
+    margin: 9px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 7px 2px black;
+    transition: all .15s ease-in-out;
+}
+.dapp-icon:hover{
+    transform: scale(1.2);
+}
+.dapp-icon:active{
+    transform: scale(1.1);
+}
+.nft-icon{
+    width: 166px;
+    height: 166px;
+    background-color:#28a745;
+    border: 1px solid;
+    margin: 13px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 7px 2px black;
+    transition: all .15s ease-in-out;
+}
+.nft-icon:hover{
+    transform: scale(1.1);
+}
+.nft-icon:active{
+    transform: scale(1.05);
+}
+@font-face {
+    font-family: myFont;
+    src: url('../fonts/Cool-SuperBlack.ttf');
+}
+
+.el-message.el-message--error.is-center.up-message-error{
+    z-index: 3000 !important;
+}
+
+.AddCustomDappModal_iconWrapper__15HS7 {
+    border: 1px dashed #6770b3;
+    border-radius: .75rem;
+    width: 4.125rem;
+    height: 4.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error {
+    margin-top: 10px;
+    text-align: left;
+    line-height: 16px;
+    color: var(--up-red);
+    display: flex;
+    align-items: center;
+}
+
+.nft-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nft-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.nft-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+.el-mobile-menu {
+    display: none;
+}
+.loading-transaction-details {
+    margin-top: 22.2px !important;
+}
+.value.l1_to{
+    cursor: pointer;
+}
+.value.l1_to:hover{
+    color:#544bffaa;
+}
+.value.l1_from{
+    cursor: pointer;
+}
+.value.l1_from:hover{
+    color:#544bffaa;
+}
+.value.l1_hash{
+    cursor: pointer;
+}
+.value.l1_hash:hover{
+    color:#544bffaa;
+}
+.value.l2_hash{
+    cursor: pointer;
+}
+.value.l2_hash:hover{
+    color:#544bffaa;
+}
+.mpc-button {
+    background-color: transparent !important;
+    transform: scale(0.8);
+}
+.user-fido-id {
+    cursor: pointer;
+}
+@media screen and (min-width: 280px) and (max-width: 480px) {
+    .up-app > .page {
+        margin: 0;
+    }
+    .el-mobile-menu {
+        display: flex;
+        width: 100%;
+    }
+    .el-menu-item {
+        flex-basis: 33.33%;
+    }
+    .nft-icon {
+        width: 100px;
+        height: 100px;
+    }
+    .user-container, .page-dapp, .page-nft, .dapp-banner, .assets-banner, .nft-banner {
+        display: none;
+    }
+
+}
+@media (orientation: landscape) and (max-width: 980px) {
+
+}
+
+[v-cloak] {
+    display: none !important;
+}
+  

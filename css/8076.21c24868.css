@@ -1,0 +1,142 @@
+.buy-coins-card {
+  padding-bottom: 20px;
+  background: var(--up-bg);
+  border-radius: 12px;
+  color: var(--up-text-primary);
+}
+.buy-coins-card + .buy-coins-card {
+  margin-top: 20px;
+}
+.buy-coins-card .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--up-line);
+  cursor: pointer;
+}
+.buy-coins-card .title img {
+  height: 28px;
+  width: auto;
+}
+.buy-coins-card .title .jump {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--up-text-third);
+}
+.buy-coins-card .title .jump span {
+  margin-right: 3px;
+}
+.buy-coins-card .card-content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding: 0px 20px;
+  margin-top: 12px;
+}
+.buy-coins-card .card-content-container .container-title {
+  flex-shrink: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  margin-right: 13px;
+}
+.buy-coins-card .card-content-container .content {
+  text-align: right;
+  color: var(--up-text-secondary);
+  font-size: 12px;
+  line-height: 20px;
+}
+.buy-coins-card .card-content-container .content .payment-method {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 2px 6px;
+  background: var(--up-tag-bg);
+  border-radius: 4px;
+  font-size: 10px;
+  line-height: 16px;
+  margin-left: 8px;
+  margin-top: 8px;
+  color: var(--up-text-primary);
+  font-weight: 400;
+}
+.up-network {
+  background: var(--up-bg);
+  border-radius: 12px;
+  padding: 0px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  color: var(--up-text-primary);
+  height: 54px;
+}
+.up-network,
+.up-network .chain {
+  display: flex;
+  align-items: center;
+}
+.up-network .chain {
+  margin-left: auto;
+}
+.up-network .chain .iconpark {
+  font-size: 20px;
+}
+.up-network .chain .label {
+  margin-left: 10px;
+}
+.up-header {
+  justify-content: space-between;
+}
+.up-header,
+.up-header > .left {
+  display: flex;
+  align-items: center;
+}
+.up-header > .left > .iconpark {
+  cursor: pointer;
+}
+.up-header > .left > .icon-back {
+  font-size: 24px;
+}
+.up-header > .left > .title {
+  margin-left: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+.up-header > .right {
+  display: flex;
+  align-items: center;
+}
+.up-header > .right > .icon-more {
+  cursor: pointer;
+  font-size: 24px;
+}
+#page-buy-coins .tips {
+  margin-top: 22px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--up-text-third);
+  text-align: left;
+}
+#page-buy-coins .card-list {
+  margin-top: 20px;
+}
+#page-buy-coins .disable {
+  position: relative;
+  opacity: 0.5;
+}
+#page-buy-coins .disable::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  cursor: not-allowed;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MaxeLabs</title>
+    <style>
+        body {
+            background-color: rgb(18, 18, 18);
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="./css/importFace.css">
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.13/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui@2.15.13/lib/index.js"></script>
+</head>
+<body>
+<div id="app" class="app">
+    <div class="text-prompt">
+        <span>{{ text }}</span>
+    </div>
+    <div class="scan-video-container">
+        <div class="video-container" v-loading="processingFace" element-loading-background="rgba(0, 0, 0, 0.70)">
+            <video ref="video" id="video" autoplay muted loop playsinline></video>
+            <canvas id="canvasElement1" style="display: none"></canvas>
+            <canvas id="canvasElement2"></canvas>
+        </div>
+        <div class="border-container">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="button" style="margin-top: 20px">
+        <el-button id="importButton" type="primary" round>import face</el-button>
+        <el-button id="checkButton" type="primary" round title="check whether your face exists in database">check face</el-button>
+    </div>
+    <div class="logo">
+        <img class="maxlabs-logo" src="img/maxe-rectangle.svg">
+    </div>
+</div>
+<script>
+    Vue.config.silent = true;
+    const app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                text: "No Face Detected",
+                constraints: {
+                    video: true,
+                },
+                loading: undefined,
+                videoStatus: false,
+                processingFace: false,
+            }
+        },
+        methods: {
+            getVideoSuccessHandle(stream) {
+                console.log(stream)
+                this.$refs.video.srcObject = stream;
+                this.loading.close();
+            },
+            getVideoErrorHandle(error) {
+                console.log("获取摄像头权限失败");
+                this.loading.close();
+                this.$message({
+                    message: 'Failed to obtain camera permissions.',
+                    type: 'error'
+                });
+            },
+            showErrorMessage(msg) {
+                this.$message({
+                    message: msg,
+                    type: 'error',
+                    center: true,
+                    customClass: "up-message-error",
+                    duration: 2000
+                });
+            },
+        },
+        mounted() {
+            // this.loading = this.$loading({
+            //     lock: true,
+            //     text: 'Loading Camera...',
+            //     background: 'rgba(0, 0, 0, 0.75)'
+            // });
+            // if (navigator.mediaDevices.getUserMedia) {
+            //     // 最新的标准API
+            //     navigator.mediaDevices
+            //         .getUserMedia(this.constraints)
+            //         .then(this.getVideoSuccessHandle)
+            //         .catch(this.getVideoErrorHandle);
+            // } else if (navigator.webkitGetUserMedia) {
+            //     // webkit核心浏览器
+            //     //navigator.webkitGetUserMedia(constraints, success, error);
+            // } else if (navigator.mozGetUserMedia) {
+            //     // firfox浏览器
+            //     //navigator.mozGetUserMedia(constraints, success, error);
+            // } else if (navigator.getUserMedia) {
+            //     // 旧版API
+            //     //navigator.getUserMedia(constraints, success, error);
+            // }
+        }
+    })
+</script>
+<script src="js/const/fido-api-constants.js"></script>
+<script src="js/utils/common.js"></script>
+<script src="js/dist/importFace.js"></script>
+</body>
+</html>

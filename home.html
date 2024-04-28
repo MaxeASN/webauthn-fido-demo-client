@@ -1,0 +1,925 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+<!--        &lt;!&ndash;[if IE]><link rel="icon" type="image/png" size="36x36" href="img/icons/android-chrome-36x36.png"/><![endif]&ndash;&gt;-->
+<!--        <link rel="icon" type="image/png" size="48x48" href="img/icons/android-chrome-48x48.png">-->
+<!--        <link rel="icon" type="image/png" size="72x72" href="img/icons/android-chrome-72x72.png">-->
+<!--        <link rel="icon" type="image/png" size="96x96" href="img/icons/android-chrome-96x96.png">-->
+<!--        <link rel="icon" type="image/png" size="144x144" href="img/icons/android-chrome-144x144.png">-->
+<!--        <link rel="icon" type="image/png" size="192x192" href="img/icons/android-chrome-192x192.png">-->
+<!--        <link rel="icon" type="image/png" size="256x256" href="img/icons/android-chrome-256x256.png">-->
+<!--        <link rel="icon" type="image/png" size="384x384" href="img/icons/android-chrome-384x384.png">-->
+<!--        <link rel="icon" type="image/png" size="512x512" href="img/icons/android-chrome-512x512.png">-->
+<!--        <link rel="apple-touch-icon" size="57x57" href="img/icons/apple-touch-icon-57x57.png">-->
+<!--        <link rel="apple-touch-icon" size="60x60" href="img/icons/apple-touch-icon-60x60.png">-->
+<!--        <link rel="apple-touch-icon" size="72x72" href="img/icons/apple-touch-icon-72x72.png">-->
+<!--        <link rel="apple-touch-icon" size="76x76" href="img/icons/apple-touch-icon-76x76.png">-->
+<!--        <link rel="apple-touch-icon" size="114x114" href="img/icons/apple-touch-icon-114x114.png">-->
+<!--        <link rel="apple-touch-icon" size="120x120" href="img/icons/apple-touch-icon-120x120.png">-->
+<!--        <link rel="apple-touch-icon" size="144x144" href="img/icons/apple-touch-icon-144x144.png">-->
+<!--        <link rel="apple-touch-icon" size="152x152" href="img/icons/apple-touch-icon-152x152.png">-->
+<!--        <link rel="apple-touch-icon" size="180x180" href="img/icons/apple-touch-icon-180x180.png">-->
+        <link rel="icon" type="image/png" size="16x16" href="img/icons/favicon-16x16.png">
+        <link rel="icon" type="image/png" size="32x32" href="img/icons/favicon-32x32.png">
+        <link rel="icon" type="image/x-icon" size="32x32" href="img/icons/favicon.ico">
+        <link rel="shortcut icon" href="img/icons/favicon.ico">
+        <link rel="manifest" href="img/icons/manifest.json">
+        <meta name="theme-color" content="#1F202A">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="mstile-144x144.png">
+        <title>MaxeLabs</title>
+        <link href="./css/chunk-vendors.610733ae.css" rel="stylesheet">
+        <link href="./css/app.f705e97f.css" rel="stylesheet">
+        <link rel="icon" type="image/svg+xml" href="/img/icons/favicon.svg">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="theme-color" content="#4DBA87">
+        <meta name="apple-mobile-web-app-capable" content="no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="maxlabs">
+        <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png">
+        <link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#4DBA87">
+        <meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png">
+        <meta name="msapplication-TileColor" content="#000000">
+        <style type="text/css">
+            .jv-node{position:relative}.jv-node:after{content:','}.jv-node:last-of-type:after{content:''}.jv-node.toggle{margin-left:13px !important}.jv-node .jv-node{margin-left:25px}
+        </style>
+        <style type="text/css">
+            .jv-container{box-sizing:border-box;position:relative}.jv-container.boxed{border:1px solid #eee;border-radius:6px}.jv-container.boxed:hover{box-shadow:0 2px 7px rgba(0,0,0,0.15);border-color:transparent;position:relative}.jv-container.jv-light{background:#fff;white-space:nowrap;color:#525252;font-size:14px;font-family:Consolas, Menlo, Courier, monospace}.jv-container.jv-light .jv-ellipsis{color:#999;background-color:#eee;display:inline-block;line-height:0.9;font-size:0.9em;padding:0px 4px 2px 4px;margin:0 4px;border-radius:3px;vertical-align:2px;cursor:pointer;-webkit-user-select:none;user-select:none}.jv-container.jv-light .jv-button{color:#49b3ff}.jv-container.jv-light .jv-key{color:#111111;margin-right:4px}.jv-container.jv-light .jv-item.jv-array{color:#111111}.jv-container.jv-light .jv-item.jv-boolean{color:#fc1e70}.jv-container.jv-light .jv-item.jv-function{color:#067bca}.jv-container.jv-light .jv-item.jv-number{color:#fc1e70}.jv-container.jv-light .jv-item.jv-object{color:#111111}.jv-container.jv-light .jv-item.jv-undefined{color:#e08331}.jv-container.jv-light .jv-item.jv-string{color:#42b983;word-break:break-word;white-space:normal}.jv-container.jv-light .jv-item.jv-string .jv-link{color:#0366d6}.jv-container.jv-light .jv-code .jv-toggle:before{padding:0px 2px;border-radius:2px}.jv-container.jv-light .jv-code .jv-toggle:hover:before{background:#eee}.jv-container .jv-code{overflow:hidden;padding:30px 20px}.jv-container .jv-code.boxed{max-height:300px}.jv-container .jv-code.open{max-height:initial !important;overflow:visible;overflow-x:auto;padding-bottom:45px}.jv-container .jv-toggle{background-image:url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB3aWR0aD0iOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KIAo8cG9seWdvbiBwb2ludHM9IjAsMCA4LDggMCwxNiIKc3R5bGU9ImZpbGw6IzY2NjtzdHJva2U6cHVycGxlO3N0cm9rZS13aWR0aDowIiAvPgo8L3N2Zz4=);background-repeat:no-repeat;background-size:contain;background-position:center center;cursor:pointer;width:10px;height:10px;margin-right:2px;display:inline-block;-webkit-transition:-webkit-transform 0.1s;transition:-webkit-transform 0.1s;transition:transform 0.1s;transition:transform 0.1s, -webkit-transform 0.1s}.jv-container .jv-toggle.open{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.jv-container .jv-more{position:absolute;z-index:1;bottom:0;left:0;right:0;height:40px;width:100%;text-align:center;cursor:pointer}.jv-container .jv-more .jv-toggle{position:relative;top:40%;z-index:2;color:#888;-webkit-transition:all 0.1s;transition:all 0.1s;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.jv-container .jv-more .jv-toggle.open{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.jv-container .jv-more:after{content:"";width:100%;height:100%;position:absolute;bottom:0;left:0;z-index:1;background:-webkit-linear-gradient(top, rgba(0,0,0,0) 20%, rgba(230,230,230,0.3) 100%);background:linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(230,230,230,0.3) 100%);-webkit-transition:all 0.1s;transition:all 0.1s}.jv-container .jv-more:hover .jv-toggle{top:50%;color:#111}.jv-container .jv-more:hover:after{background:-webkit-linear-gradient(top, rgba(0,0,0,0) 20%, rgba(230,230,230,0.3) 100%);background:linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(230,230,230,0.3) 100%)}.jv-container .jv-button{position:relative;cursor:pointer;display:inline-block;padding:5px;z-index:5}.jv-container .jv-button.copied{opacity:0.4;cursor:default}.jv-container .jv-tooltip{position:absolute}.jv-container .jv-tooltip.right{right:15px}.jv-container .jv-tooltip.left{left:15px}.jv-container .j-icon{font-size:12px}
+        </style>
+
+        <link rel="stylesheet" type="text/css" href="./css/6714.25cbce4a.css">
+        <link rel="stylesheet" type="text/css" href="./css/9414.9f695cdb.css">
+        <link rel="stylesheet" type="text/css" href="./css/9947.e74768cb.css">
+        <link rel="stylesheet" type="text/css" href="./css/6372.2046527c.css">
+        <link rel="stylesheet" type="text/css" href="./css/8076.21c24868.css">
+        <link rel="stylesheet" type="text/css" href="./css/3941.4d472385.css">
+        <link rel="stylesheet" type="text/css" href="./css/home.css">
+        <link href="./css/send.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+        <script src="js/jquery-3.7.0.min.js"></script>
+        <!-- vue -->
+        <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+        <!-- 引入样式 -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.13/lib/theme-chalk/index.css">
+        <!-- 引入组件库 -->
+        <script src="https://unpkg.com/element-ui@2.15.13/lib/index.js"></script>
+        <script type="module" src="js/walletConnect-transaction.js"></script>
+        <style>
+            body {
+                background-image: url("img/background.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body class="" style="">
+    <noscript>
+        <strong>We're sorry but Maxelabs doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app" data-v-app="">
+        <!---->
+        <div class="up-app" style="display: flex; flex-wrap: wrap;  justify-content: center; align-items: flex-start;">
+            <div class="user-container">
+                <div class="user-basic-info">
+                    <div class="user-nickname">
+
+                        <div class="user-font">
+                            My Nickname : 
+                        </div>
+                        <div class="user-font" id="nickname" style="font-weight: bold;left: 5px;" th:text="${username}">
+                            My Nickname 
+                        </div>
+                    </div>
+
+                    <div class="user-fido-id" onclick="window.location.href='/manageFido.html'" title="manage your fido device.">
+                        <div class="user-font">
+                            My FIDO ID : 
+                        </div>
+                        <div class="user-font" id="fidoid" style="font-weight: bold;left: 5px;" th:text="${fidoPublicKey}">
+                            0xABCXxxxxxxxxxxXXXXXXXXXXXXXXXX
+                        </div>
+                    </div>
+                    <div class="user-icon">
+                    </div>    
+                    <a class="setting" id="logout" style="position:absolute;left: 630px; top:27px; border: 1px solid; width: 100px; border-radius: 10px;text-align: center;color: white;">
+                        LOG OUT
+                        <!-- <iconpark-icon icon-id="exit" class="iconpark icon-exit" name="" size="2em" width="" height="" title="登出"></iconpark-icon> -->
+                    </a>
+                </div>
+            
+            </div>
+            <div class="up-loading" style="display: none;">
+                <div class="loader">
+                    <div class="orbe" style="--index:0;"></div>
+                    <div class="orbe" style="--index:1;"></div>
+                    <div class="orbe" style="--index:2;"></div>
+                    <div class="orbe" style="--index:3;"></div>
+                    <div class="orbe" style="--index:4;"></div>
+                </div>
+                <div class="tx-tip">发送交易中，请耐心等待…</div>
+            </div>
+            <div id="page-index" class="header-bg-img page page-dapp" ref="page_dapp" style="border: 1px solid rgb(62,70,115);">
+                <div class="main-container" style="display: flex; flex-wrap: wrap;justify-content: flex-start; align-items: center;align-content: flex-start;
+                padding-top: 15px;height: 600PX;">
+                    <a class="dapp-icon uniswap" href="https://app.uniswap.org/#/swap" target="_blank" style="background-image:url(./img/icons/dapp1.png);background-size: cover;display: none;"></a>
+                    <div class="dapp-icon" style="background-image: url(./img/icons/dapp0.png); background-size: cover; border: 2px dashed; cursor: pointer;" @click="navigateToDapp('http://localhost:8000/en/menus/explore')"></div>
+<!--                    <div class="dapp-icon" style="background-image:url(./img/icons/dapp3.png);background-size: cover;"></div>-->
+<!--                    <div class="dapp-icon" style="background-image:url(./img/icons/dapp4.png);background-size: cover;"></div>-->
+<!--                    <div class="dapp-icon" style="background-image:url(./img/icons/dapp5.png);background-size: cover;"></div>-->
+<!--                    <div class="dapp-icon" style="background-image:url(./img/icons/dapp6.png);background-size: cover;"></div>-->
+<!--                    <div class="dapp-icon" style="background-image:url(./img/icons/dapp7.png);background-size: cover;"></div>-->
+<!--                    <div class="dapp-icon" style="background-image:url(./img/icons/dapp8.png);background-size: cover;"></div>-->
+<!--                    <div class="dapp-icon" style="background-image:url(./img/icons/dapp9.png);background-size: cover;"></div>-->
+<!--                    <div class="dapp-icon" style="background-image:url(./img/icons/dapp10.png);background-size: cover;"></div>-->
+                    <div class="dapp-icon" style="background-image:url(./img/icons/dapp11.png);background-size: cover;border: 2px dashed;cursor: pointer;" onclick="addDappConfirm()"></div>
+                    <div class="dapp-banner" style="position:absolute;margin-bottom: 0px;bottom: -60px; align-items: center;width: 100%;font-family: myFont;font-size: large;">
+                    My DApps
+                     </div>
+                </div>
+
+
+            </div>
+
+
+            <div id="page-index" class="header-bg-img page page-assets" ref="page_assets" style="border: 1px solid rgb(62,70,115);">
+                <div class="main-container" style="margin-bottom:50px ;">
+                    <div class="up-home-page-header">
+                        <div class="header-content">
+                            <div class="user">
+                                <div class="left" style="display: none"></div>
+                                <div class="right">
+                                    <div class="email" id="display-username" th:text="${username}" style="display: none"></div>
+                                    <div class="address" id="display-address">
+                                        <span th:text="${address}"></span>
+                                        <iconpark-icon icon-id="copy" class="iconpark icon-copy" name="" size="1em" width="" height="" title="复制地址" @click="copySelectAddress"></iconpark-icon>
+                                        <img src="img/switch.svg" style="margin-left: 6px" id="switch-address" title="切换地址" onclick="displayL1Address()">
+                                        <el-button size="mini" id="mpcStatus" plain="true" round @click="showMpcConfirm=true" class="mpc-button" style="transform: scale(0.9);margin-left: 5px;">mpc</el-button>
+                                    </div>
+                                </div>
+                                <div class="cover" style="height: 610px; display: none;" id="cover-address-select"></div>
+                                <div class="chain-select-container address-options" style="display: none">
+                                    <div class="chain-select-options chain-options" style="border-bottom: 1px solid #c3c3c3;">
+                                        <div class="button-box button-box-padding" style="margin-bottom: 20px; margin-left: 46px;">
+                                            <button class="el-button el-button--info up-button" id="create-l1-address" onclick="displayCreateAddressConfirm()" aria-disabled="false" type="button" style="width: 180px;margin-right: 10px;color: #548bdd;">
+                                                <span class=""><iconpark-icon icon-id="add-token" class="iconpark icon-add-token" name="" size="1em" width="" height=""></iconpark-icon> Create Address</span>
+                                            </button>
+                                            <button class="el-button el-button--info up-button" id="import-l1-address" aria-disabled="false" type="button" style="width: 180px;color: #548bdd;">
+                                                <span class=""><img src="img/import.svg" style="width: 22px;height: 22px;"> Import Address</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-overlay" id="create-address-confirm" style="z-index: 2012; display: none;">
+                                    <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7" class="el-overlay-dialog">
+                                        <div class="el-dialog el-dialog--center drawer-receive-dialog" tabindex="-1"style="max-width: 370px;padding-top: 0;">
+                                            <header class="el-dialog__header">
+                                                <span role="heading" class="el-dialog__title"></span>
+                                                <!--v-if-->
+                                            </header>
+                                            <div id="el-id-3005-7" class="el-dialog__body">
+                                                <div>
+                                                    <div id="receive-dialog" data-v-7bb2b20a="">
+                                                        <div class="title" data-v-7bb2b20a="" style="display: flex; justify-content: center">
+                                                            <span data-v-7bb2b20a="" style="font-weight: bolder;font-size: 1.1em;">Create Address</span>
+                                                        </div>
+                                                        <div class="confirm-text" style="margin-top:30px"><span style="font-weight: bold; font-size:1.4em;">Do you need MaxeLabs to help you create an address on L1?</span></div>
+
+                                                        <div id="confirm-button" style="margin-top: 0px;">
+                                                            <button class="el-button el-button--primary copy up-button copy" onclick="createL1Address()" aria-disabled="false" type="button" data-v-7bb2b20a="" style="width: 100px;height: 46px;margin-right: 22px;/* margin-left: 0px; */">
+                                                                <span class="">Yes</span>
+                                                            </button>
+                                                            <button class="el-button el-button--primary copy up-button copy" onclick="hideCreateAddressConfirm()" aria-disabled="false" type="button" data-v-7bb2b20a="" style="width: 100px;height: 46px;background: linear-gradient(320deg, #bdb8d1 0, #bdb8d1 100%);">
+                                                                <span class="">No</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--v-if-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-overlay" id="mpc-confirm" v-show="showMpcConfirm" style="z-index: 1999; display: none;">
+                                    <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7" class="el-overlay-dialog">
+                                        <div class="el-dialog el-dialog--center drawer-receive-dialog" tabindex="-1"style="max-width: 370px;padding-top: 0;">
+                                            <header class="el-dialog__header">
+                                                <span role="heading" class="el-dialog__title"></span>
+                                                <!--v-if-->
+                                            </header>
+                                            <div id="el-id-3005-7" class="el-dialog__body">
+                                                <div>
+                                                    <div id="receive-dialog" data-v-7bb2b20a="">
+                                                        <div class="title" data-v-7bb2b20a="" style="display: flex; justify-content: center">
+                                                            <span data-v-7bb2b20a="" style="font-weight: bolder;font-size: 1.1em;">Enable Mpc</span>
+                                                        </div>
+                                                        <div class="confirm-text" style="margin-top:20px"><span style="font-weight: bold; font-size:1.4em;word-break: break-word;">Whether to use mpc technology to divide your private key into 3 parts, you will get 1 part of it and the other two parts will be stored in Maxelabs.You can recover at any time.</span></div>
+<!--                                                        <template>-->
+<!--                                                            <el-radio v-model="node_id" label="1">V1</el-radio>-->
+<!--                                                            <el-radio v-model="node_id" label="2">V2</el-radio>-->
+<!--                                                        </template>-->
+                                                        <div id="confirm-button" style="margin-top: 0px;">
+                                                            <button class="el-button el-button--primary copy up-button copy" @click="clickEnableMpc" aria-disabled="false" type="button" data-v-7bb2b20a="" style="width: 100px;height: 46px;margin-right: 22px;/* margin-left: 0px; */">
+                                                                <span class="">Yes</span>
+                                                            </button>
+                                                            <button class="el-button el-button--primary copy up-button copy" @click="showMpcConfirm=false"  aria-disabled="false" type="button" data-v-7bb2b20a="" style="width: 100px;height: 46px;background: linear-gradient(320deg, #bdb8d1 0, #bdb8d1 100%);">
+                                                                <span class="">No</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--v-if-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-overlay" id="mpc-success" v-show="showMpcSuccess" style="z-index: 1999; display: none;">
+                                    <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7" class="el-overlay-dialog">
+                                        <div class="el-dialog el-dialog--center drawer-receive-dialog" tabindex="-1"style="max-width: 370px;padding-top: 0;">
+                                            <header class="el-dialog__header">
+                                                <span role="heading" class="el-dialog__title"></span>
+                                                <!--v-if-->
+                                            </header>
+                                            <div id="el-id-3005-7" class="el-dialog__body">
+                                                <div>
+                                                    <div id="receive-dialog" data-v-7bb2b20a="">
+                                                        <div class="title" data-v-7bb2b20a="" style="display: flex; justify-content: center">
+                                                            <span data-v-7bb2b20a="" style="font-weight: bolder;font-size: 1.1em;">Slice Successfully!</span>
+                                                        </div>
+                                                        <div class="confirm-text" style="margin-top:20px"><span style="font-weight: bold; font-size:1.4em;">Your private key fragment:</span></div>
+                                                        <div class="worth"style="transform: scale(2); margin-top: 20px">
+                                                            <span id="privateKeyFragment" style="color: #fff; font-size: 8px">********</span>
+                                                            <iconpark-icon style="color: #fff;cursor: pointer;" icon-id="eyes-open" class="iconpark icon-eyes-open" name="" size="1em" width="" height="" @click="showKeyFragment"></iconpark-icon>
+                                                        </div>
+                                                        <!--                                                        <template>-->
+                                                        <!--                                                            <el-radio v-model="node_id" label="1">V1</el-radio>-->
+                                                        <!--                                                            <el-radio v-model="node_id" label="2">V2</el-radio>-->
+                                                        <!--                                                        </template>-->
+                                                        <div style="margin-top: -5px; justify-content: center; width: 100%">
+                                                            <button @click="showMpcSuccess=false" class="el-button el-button--primary copy up-button copy"  aria-disabled="false" type="button" data-v-7bb2b20a="" style="width: 100%;height: 46px;">
+                                                                <span class="">Close</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--v-if-->
+                                        </div>
+                                    </div>
+                                </div>
+<!--                                <div id="sign-confirm" class="el-overlay" style="z-index: 2012;">-->
+<!--                                    <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7" class="el-overlay-dialog">-->
+<!--                                        <div tabindex="-1" class="el-dialog el-dialog&#45;&#45;center drawer-receive-dialog" style="max-width: 370px; padding-top: 0px;">-->
+<!--                                            <header class="el-dialog__header">-->
+<!--                                                <span role="heading" class="el-dialog__title"></span>-->
+<!--                                            </header> -->
+<!--                                            <div id="el-id-3005-7" class="el-dialog__body">-->
+<!--                                                <div>-->
+<!--                                                    <div id="receive-dialog" data-v-7bb2b20a="">-->
+<!--                                                        <div data-v-7bb2b20a="" class="title" style="display: flex; justify-content: center;">-->
+<!--                                                            <span data-v-7bb2b20a="" style="font-weight: bolder; font-size: 1.1em;">Create Address</span>-->
+<!--                                                        </div>-->
+<!--                                                        <button class="el-button el-button&#45;&#45;info up-button" aria-disabled="false" type="button">&lt;!&ndash;v-if&ndash;&gt;-->
+<!--                                                            <span class="" style="color: black;">Cancel</span>-->
+<!--                                                        </button> -->
+<!--                                                        <div id="confirm-button" style="margin-top: 0px;">-->
+<!--                                                            <button onclick="createL1Address()" aria-disabled="false" type="button" data-v-7bb2b20a="" class="el-button el-button&#45;&#45;primary copy up-button copy" style="width: 100px; height: 46px; margin-right: 22px;">-->
+<!--                                                                <span>Yes</span>-->
+<!--                                                            </button>-->
+<!--                                                            <button onclick="hideCreateAddressConfirm()" aria-disabled="false" type="button" data-v-7bb2b20a="" class="el-button el-button&#45;&#45;primary copy up-button copy" style="width: 100px; height: 46px; background: linear-gradient(320deg, rgb(189, 184, 209) 0px, rgb(189, 184, 209) 100%);">-->
+<!--                                                                <span>No</span>-->
+<!--                                                            </button>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                            </div>
+                            <div class="setting-icons" data-display="false">
+                                <iconpark-icon icon-id="ETH" id="setting-coin-icon" class="iconpark icon-ETH setting" name="" size="1em" width="" height=""></iconpark-icon>
+                            </div>
+                        </div>
+                        <!---->
+                        <!---->
+                    </div>
+                    <a class="wallet-connect" v-show="walletConnecting" v-cloak>
+                        <div class="box">
+                            <div class="left">
+                                <img src="/img/wallet-connect.7b312ac8.svg">
+                                <span>WalletConnect</span>
+                            </div>
+                            <div class="right up-chain ETH">disconnect</div>
+                        </div>
+                    </a>
+                    <!---->
+                    <div class="lump-sum-box">
+                        <div class="title" style="font-family:myFont;font-size: x-large;">Layer2 Balance</div>
+                        <div class="lump-sum">
+                            <div class="worth">
+                                <span id="mainCoin_amount">$0.00</span>
+                                <iconpark-icon icon-id="eyes-open" class="iconpark icon-eyes-open" name="" size="1em" width="" height="" onclick="hideMainCoinValue()"></iconpark-icon>
+                            </div>
+                            <iconpark-icon icon-id="loading" class="iconpark icon-loading is-loading duration" style="display: none;" name="" size="1em" width="" height=""></iconpark-icon>
+                        </div>
+                    </div>
+                    <div class="shortcut" style="margin-top:20px;">
+                        <div class="btn-box" onclick="openScan()">
+                            <div class="btn">
+                                SCAN
+<!--                                <iconpark-icon icon-id="scan-light" class="iconpark icon-scan-light" name="" size="1em" width="" height=""></iconpark-icon>-->
+                            </div>
+<!--                            <div>扫码</div>-->
+                        </div>
+                        <div class="btn-box active">
+                            <div class="btn">
+                                RECEIEVE
+                                <!-- <iconpark-icon icon-id="receive-dark" class="iconpark icon-receive-dark" name="" size="1em" width="" height=""></iconpark-icon> -->
+<!--                                <img src="img/transfer.svg" height="20" width="20">-->
+                            </div>
+                            <!-- <div>接收</div> -->
+                        </div>
+<!--                        <div class="btn-box" id="btn-box-buy">-->
+<!--                            <div class="btn" id="img-buy">-->
+<!--&lt;!&ndash;                                <iconpark-icon icon-id="buy-light" class="iconpark icon-buy-light" name="" size="1em" width="" height=""></iconpark-icon>&ndash;&gt;-->
+<!--                                &lt;!&ndash; <img src="img/buy.svg" height="30" width="30"> &ndash;&gt;-->
+<!--                                SEND-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; <div id="text-buy">购买</div> &ndash;&gt;-->
+<!--                        </div>-->
+                    </div>
+                    <!---->
+                    <div class="coin-box" style="margin-top: 15px;">
+                        <div class="el-tabs el-tabs--top">
+                            <div class="el-tabs__header is-top">
+                                <!---->
+                                <div class="el-tabs__nav-wrap is-top">
+                                    <!---->
+                                    <div class="el-tabs__nav-scroll">
+                                        <div class="el-tabs__nav is-top" role="tablist" style="transform: translateX(0px);">
+                                            <div class="el-tabs__active-bar is-top" style="width: 69px; transform: translateX(0px);"></div>
+                                            <div class="el-tabs__item is-top is-active" id="tab-token" aria-controls="pane-token" role="tab" aria-selected="true" tabindex="0">ASSETS
+                                                <!---->
+                                            </div>
+                                            <div class="el-tabs__item is-top" id="tab-collection" aria-controls="pane-collection" role="tab" aria-selected="false" tabindex="-1">TRANSATIONS
+                                                <!---->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="el-tabs__content">
+                                <div id="pane-token" class="el-tab-pane" role="tabpanel" aria-hidden="false" aria-labelledby="tab-token">
+                                    <div class="coin" id="coin-eth">
+                                        <div class="top">
+                                            <div class="up-token index">
+                                                <div class="token-box">
+                                                    <iconpark-icon icon-id="ETH" class="iconpark icon-ETH box-token" name="" size="1em" width="" height=""></iconpark-icon>
+                                                    <iconpark-icon icon-id="ETH" class="iconpark icon-ETH box-chain" name="" size="1em" width="" height=""></iconpark-icon>
+                                                </div>
+                                                <div class="index">
+                                                    <div class="index-title">ETH</div>
+                                                    <div class="index-subtitle">ETH</div>
+                                                </div>
+                                            </div>
+                                            <div class="balance" id="token-box-balance-eth">
+                                                <iconpark-icon icon-id="loading" class="iconpark icon-loading is-loading duration" style="display: none;" name="" size="1em" width="" height=""></iconpark-icon>
+                                                <div>0</div>
+                                                <div class="up-dollar" symbol="ETH">~$0.00</div>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                    <div class="coin" id="coin-usdt">
+                                        <div class="top">
+                                            <div class="up-token index">
+                                                <div class="token-box">
+                                                    <iconpark-icon icon-id="USDT" class="iconpark icon-USDT box-token" name="" size="1em" width="" height=""></iconpark-icon>
+                                                    <iconpark-icon icon-id="ETH" class="iconpark icon-ETH box-chain" name="" size="1em" width="" height=""></iconpark-icon>
+                                                </div>
+                                                <div class="index">
+                                                    <div class="index-title">USDT</div>
+                                                    <div class="index-subtitle">Tether</div>
+                                                </div>
+                                            </div>
+                                            <div class="balance">
+                                                <iconpark-icon icon-id="loading" class="iconpark icon-loading is-loading duration" style="display: none;" name="" size="1em" width="" height=""></iconpark-icon>
+                                                <div>0</div>
+                                                <div class="up-dollar" symbol="USDT">~$0.00</div>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                    <div class="coin" id="coin-usdc">
+                                        <div class="top">
+                                            <div class="up-token index">
+                                                <div class="token-box">
+                                                    <iconpark-icon icon-id="USDC" class="iconpark icon-USDC box-token" name="" size="1em" width="" height=""></iconpark-icon>
+                                                    <iconpark-icon icon-id="ETH" class="iconpark icon-ETH box-chain" name="" size="1em" width="" height=""></iconpark-icon>
+                                                </div>
+                                                <div class="index">
+                                                    <div class="index-title">USDC</div>
+                                                    <div class="index-subtitle">USD Coin</div>
+                                                </div>
+                                            </div>
+                                            <div class="balance">
+                                                <iconpark-icon icon-id="loading" class="iconpark icon-loading is-loading duration" style="display: none;" name="" size="1em" width="" height=""></iconpark-icon>
+                                                <div>0</div>
+                                                <div class="up-dollar" symbol="USDC">~$0.00</div>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                    <iconpark-icon icon-id="loading" class="iconpark icon-loading collection-loading is-loading" style="display: none;" name="" size="1em" width="" height=""></iconpark-icon>
+                                </div>
+                                <div id="pane-collection" class="el-tab-pane" role="tabpanel" aria-hidden="true" aria-labelledby="tab-collection" style="display: none;">
+                                    <iconpark-icon icon-id="loading" class="iconpark icon-loading collection-loading is-loading" name="" size="1em" width="" height="" style="display: none;"></iconpark-icon>
+                                    <div class="nft-none"><img src="./img/nft-none-light.7d2aa6bc.svg"><div>There are no transactions...</div></div>
+                                    <div class="coin" style="display: none;">
+                                        <div class="top">
+                                            <div class="up-token index">
+                                                <div class="token-box">
+                                                    <svg width="36" height="36" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="29" height="29" rx="14.5" stroke="#0376c9"></rect><path d="M18.5851 9.88921C18.5586 9.89005 18.5321 9.89238 18.5057 9.89618H14.3207C14.0635 9.89254 13.8243 10.0276 13.6947 10.2497C13.565 10.4719 13.565 10.7466 13.6947 10.9687C13.8243 11.1908 14.0635 11.3259 14.3207 11.3222H16.8777L9.53811 18.6614C9.35182 18.8402 9.27679 19.1058 9.34193 19.3557C9.40707 19.6056 9.60222 19.8007 9.85211 19.8658C10.102 19.931 10.3676 19.8559 10.5464 19.6697L17.886 12.3305V14.8874C17.8823 15.1445 18.0175 15.3837 18.2396 15.5133C18.4617 15.643 18.7364 15.643 18.9585 15.5133C19.1806 15.3837 19.3158 15.1445 19.3121 14.8874V10.6997C19.3409 10.4919 19.2767 10.282 19.1366 10.1259C18.9965 9.96973 18.7948 9.88316 18.5851 9.88921Z" fill="#0376c9"></path></svg>
+                                                </div>
+                                                <div class="index">
+                                                    <div class="index-title">发送</div>
+                                                    <div class="index-subtitle">
+                                                        <span style="color:#28a745;">May4 ·</span>
+                                                        至：0x20e...3ccf</div>
+                                                </div>
+                                            </div>
+                                            <div class="balance">
+                                                <iconpark-icon icon-id="loading" class="iconpark icon-loading is-loading duration" style="display: none;" name="" size="1em" width="" height=""></iconpark-icon>
+                                                <div>-0.1 ETH</div>
+                                                <div class="up-dollar" symbol="ETH">~$19.02 USD</div>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="assets-banner" style="position:absolute; margin-bottom: 0px; bottom: -60px; align-items: center;width: 100%;font-family: myFont;font-size: large;">
+                        My Assets
+                    </div>
+                </div>
+
+                <div class="el-overlay" style="z-index: 2012; display: none;">
+                    <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7" class="el-overlay-dialog">
+                        <div class="el-dialog el-dialog--center drawer-receive-dialog" tabindex="-1">
+                            <header class="el-dialog__header">
+                                <span role="heading" class="el-dialog__title"></span>
+                                <!--v-if-->
+                            </header>
+                            <div id="el-id-3005-7" class="el-dialog__body">
+                                <div>
+                                    <div id="receive-dialog" data-v-7bb2b20a="">
+                                        <div class="title" data-v-7bb2b20a="">
+                                            <span data-v-7bb2b20a="">Receieve</span>
+                                            <iconpark-icon icon-id="close" class="iconpark icon-close close" data-v-7bb2b20a="" name="" size="1em" width="" height=""></iconpark-icon>
+                                        </div>
+                                        <div class="qr-code-box" data-v-7bb2b20a="">
+                                            <img src="data:image/png;base64,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" class="qr-code" data-v-7bb2b20a="">
+                                        </div>
+                                        <div class="address" data-v-7bb2b20a="">0x3909dcd11cb041b59de4613d2196493611ed4fd7</div>
+                                        <div class="supported-networks" data-v-7bb2b20a="">Supported networks</div>
+                                        <div class="supported-networks-icons" data-v-7bb2b20a="">
+                                            <iconpark-icon icon-id="ETH" class="iconpark icon-ETH" data-v-7bb2b20a="" name="" size="1em" width="24" height="24"></iconpark-icon>
+                                            <iconpark-icon icon-id="BSC" class="iconpark icon-BSC" data-v-7bb2b20a="" name="" size="1em" width="24" height="24"></iconpark-icon>
+                                            <iconpark-icon icon-id="Polygon" class="iconpark icon-Polygon" data-v-7bb2b20a="" name="" size="1em" width="24" height="24"></iconpark-icon>
+                                            <iconpark-icon icon-id="Arbitrum" class="iconpark icon-Arbitrum" data-v-7bb2b20a="" name="" size="1em" width="24" height="24"></iconpark-icon>
+                                            <iconpark-icon icon-id="Avalanche" class="iconpark icon-Avalanche" data-v-7bb2b20a="" name="" size="1em" width="24" height="24"></iconpark-icon>
+                                            <iconpark-icon icon-id="KCC" class="iconpark icon-KCC" data-v-7bb2b20a="" name="" size="1em" width="24" height="24"></iconpark-icon>
+                                            <iconpark-icon icon-id="Rangers" class="iconpark icon-Rangers" data-v-7bb2b20a="" name="" size="1em" width="24" height="24"></iconpark-icon>
+                                            <iconpark-icon icon-id="OKC" class="iconpark icon-OKC" data-v-7bb2b20a="" name="" size="1em" width="24" height="24"></iconpark-icon>
+                                        </div>
+                                        <button class="el-button el-button--primary copy up-button copy" aria-disabled="false" type="button" data-v-7bb2b20a="">
+                                            <!--v-if-->
+                                            <span class="">复制地址</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--v-if-->
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <div class="el-overlay" style="z-index: 2059; display: none;">
+                    <div role="dialog" aria-modal="true" aria-labelledby="el-id-582-41" aria-describedby="el-id-582-42" class="el-overlay-dialog"></div>
+                </div>
+                <div class="el-overlay" style="z-index: 2060; display: none;">
+                    <div role="dialog" aria-modal="true" aria-label="取消恢复" aria-describedby="el-id-582-43" class="el-overlay-dialog"></div>
+                </div>
+                <div class="el-overlay" id="scanDiv" style="z-index: 2061; display: none;">
+                    <div role="dialog" aria-modal="true" aria-label="扫码" aria-describedby="el-id-582-44" class="el-overlay-dialog">
+                        <div class="el-dialog el-dialog--center up-confirm" tabindex="-1"><header class="el-dialog__header"><span role="heading" class="el-dialog__title">扫码</span><button aria-label="Close this dialog" class="el-dialog__headerbtn" type="button"><i class="el-icon el-dialog__close" onclick="closeScan()"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path></svg></i></button></header><div id="el-id-6796-24" class="el-dialog__body"><div class="scan-modal-content"><div class="scan-video"><div class="scan-video-container"><div class="video-container"><video playsinline="" attr-scanning="true"></video></div><div class="border-container"><div></div><div></div><div></div><div></div></div></div></div><div class="paste-btn"><button class="el-button el-button--info up-button" id="walletConnectButton" v-loading.fullscreen.lock="fullscreenLoading" element-loading-background="rgba(0, 0, 0, 0.7)" aria-disabled="false" type="button"><!--v-if--><span class="">Paste WalletConnect QR</span></button></div></div></div><!--v-if--></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="page-index" class="header-bg-img page page-nft" ref="page_nft" style="border: 1px solid rgb(62,70,115);">
+                <div class="main-container" style="display: flex; flex-wrap: wrap;justify-content: center; align-items: center;padding-top: 15px;height: 600px;">
+                    <div class="nft-overlay">
+                        <div class="nft-background"></div>
+                        <div class="nft-text">
+                            <h2>You don't have any collectibles (NFTs) yet</h2>
+                        </div>
+                    </div>
+                    <div class="nft-icon"style="background-image:url(./img/icons/NFT1.jpg);background-size: cover;"></div>
+                    <div class="nft-icon"style="background-image:url(./img/icons/NFT2.jpg);background-size: cover;"></div>
+                    <div class="nft-icon"style="background-image:url(./img/icons/NFT3.jpg);background-size: cover;"></div>
+                    <div class="nft-icon"style="background-image:url(./img/icons/NFT4.png);background-size: cover;"></div>
+                    <div class="nft-icon"style="background-image:url(./img/icons/NFT5.jpg);background-size: cover;"></div>
+                    <div class="nft-icon"style="background-image:url(./img/icons/NFT6.jpg);background-size: cover;"></div>
+<!--                    <div style="position:absolute; margin-bottom: 0px; bottom: -25px; align-items: center;width: 396;">-->
+<!--                        More...-->
+<!--                    </div>-->
+                    <div class="nft-banner" style="position:absolute; margin-bottom: 0px; bottom: -60px; align-items: center;width: 100%;font-family: myFont;font-size: large;">
+                        My NFTs
+                    </div>
+                </div>
+                <!-- <div style="position:relative;top: 5px; align-items: center;width: 396;">
+                    MORE...
+                </div>
+                <div style="position:absolute;margin-bottom: 20px; bottom: 0px ;align-items: center;width: 396;font-family: myFont;font-size: large;">
+                    My NFTs
+                </div> -->
+            </div>
+
+            <div class="el-overlay" style="z-index: 2001; display: none;">
+                <div role="dialog" aria-modal="true" aria-labelledby="el-id-582-0" aria-describedby="el-id-582-1" class="el-overlay-dialog"></div>
+            </div>
+            <div class="el-overlay" style="z-index: 2002; display: none;">
+                <div aria-modal="true" aria-labelledby="el-id-582-2" aria-describedby="el-id-582-3" class="el-drawer rtl up-header-more" role="dialog" style="width: 290px;">
+                    <span class="el-drawer__sr-focus" tabindex="-1"></span>
+                    <header class="el-drawer__header">
+                        <span id="el-id-582-2" role="heading" class="el-drawer__title"></span>
+                        <button aria-label="Close this dialog" class="el-drawer__close-btn" type="button">
+                            <i class="el-icon el-drawer__close">
+                                <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="currentColor" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+                                </svg>
+                            </i>
+                        </button>
+                    </header>
+                    <!--v-if-->
+                    <!--v-if-->
+                </div>
+            </div>
+            <div class="el-overlay" style="z-index: 2003; display: none;">
+                <div role="dialog" aria-modal="true" aria-label="安全验证" aria-describedby="el-id-582-4" class="el-overlay-dialog"></div>
+            </div>
+            <div class="el-overlay transaction-details" style="z-index: 2000; display: none;">
+                <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7" class="el-overlay-dialog">
+                    <div class="el-dialog el-dialog--center drawer-receive-dialog" tabindex="-1">
+                        <header class="el-dialog__header">
+                            <span role="heading" class="el-dialog__title"></span>
+                            <!--v-if-->
+                        </header>
+                        <div id="el-id-3005-7" class="el-dialog__body">
+                            <div>
+                                <div id="receive-dialog" data-v-7bb2b20a="">
+                                    <div class="title" data-v-7bb2b20a="">
+                                        <span data-v-7bb2b20a="">transaction details</span>
+                                        <iconpark-icon icon-id="close" onclick="closeTransactionDetails()" class="iconpark icon-close close" data-v-7bb2b20a="" name="" size="1em" width="" height=""></iconpark-icon>
+                                    </div>
+                                    <div class="transaction-details-pairs" >
+                                        <div class="key state">state</div>
+                                        <div class="value state" v-loading="loadingState" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0)" element-loading-custom-class="loading-transaction-details">{{tdState}}</div>
+                                    </div>
+                                    <div class="transaction-details-pairs" >
+                                        <div class="key chain">chain</div>
+                                        <div class="value chain">{{tdChain}}</div>
+                                    </div>
+                                    <div class="transaction-details-pairs" >
+                                        <div class="key l1_from">from</div>
+                                        <div class="value l1_from" @click="copyTdFrom" title="复制地址">{{brief_tdFrom}}</div>
+                                    </div>
+                                    <div class="transaction-details-pairs" >
+                                        <div class="key l1_to">to</div>
+                                        <div class="value l1_to" @click="copyTdTo" title="复制地址">{{brief_tdTo}}</div>
+                                    </div>
+                                    <div class="transaction-details-pairs" >
+                                        <div class="key state">symbol</div>
+                                        <div class="value state">{{tdSymbol}}</div>
+                                    </div>
+                                    <div class="transaction-details-pairs" >
+                                        <div class="key amount">amount</div>
+                                        <div class="value amount">{{tdAmount}}</div>
+                                    </div>
+                                    <div class="transaction-details-pairs" >
+                                        <div class="key l2_hash">l2 hash</div>
+                                        <div class="value l2_hash" @click="redirectToL2Browser">{{brief_tdL2Hash}}</div>
+                                    </div>
+                                    <div class="transaction-details-pairs" >
+                                        <div class="key l1_hash">l1 hash</div>
+                                        <div class="value l1_hash" v-loading="loadingL1Hash" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0)" element-loading-custom-class="loading-transaction-details" @click="redirectToL1Browser">{{brief_tdL1Hash}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--v-if-->
+                    </div>
+                </div>
+            </div>
+            <div class="el-overlay" id="transaction-confirm" style="z-index: 2012; display: none">
+                <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7" class="el-overlay-dialog">
+                    <div class="el-dialog el-dialog--center drawer-receive-dialog" tabindex="-1" style="background-color: rgb(62 56 106);">
+                        <header class="el-dialog__header">
+                            <span role="heading" class="el-dialog__title"></span>
+                            <!--v-if-->
+                        </header>
+                        <div id="el-id-3005-7" class="el-dialog__body">
+                            <div>
+                                <div id="receive-dialog" data-v-7bb2b20a="">
+                                    <div class="title" id="title-confirm" data-v-7bb2b20a="" style="display: flex; justify-content: center">
+                                        <span data-v-7bb2b20a="" style="font-weight: bolder;font-size: 20px;color: white;">Confirm Transaction</span>
+                                    </div>
+                                    <webauthn-transaction></webauthn-transaction>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--v-if-->
+                    </div>
+                </div>
+            </div>
+            <!---->
+        </div>
+        <el-menu
+                :default-active="activeIndex"
+                class="el-mobile-menu"
+                mode="horizontal"
+                @select="handleSelect"
+                background-color="#545c64"
+                text-color="#fff"
+                active-text-color="#ffd04b">
+            <el-menu-item index="1">Dapp</el-menu-item>
+            <el-menu-item index="2" >Assets</el-menu-item>
+            <el-menu-item index="3">NFT</el-menu-item>
+        </el-menu>
+        <!---->
+    </div>
+    <script src="./iconpark.329803f7.js" type="text/javascript"></script>
+
+    <div id="el-popper-container-8392">
+        <!--v-if-->
+    </div>
+
+    <script>
+        Vue.config.silent = true;
+        const app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    fullscreenLoading: false,
+                    walletConnecting: false,
+                    activeIndex: '2',
+                    loadingState: true,
+                    loadingL1Hash: true,
+                    tdState:"",
+                    tdChain:"",
+                    tdFrom:"",
+                    tdTo:"",
+                    tdSymbol:"",
+                    tdAmount:"",
+                    tdL2Hash:"",
+                    tdL1Hash:"",
+                    showMpcConfirm:false,
+                    showMpcSuccess:false,
+                    node_id:"1",
+                }
+            },
+            computed: {
+                brief_tdFrom:function (){
+                    if(this.tdFrom.length < 6) return "";
+                    return this.tdFrom.substring(0, 6) + '...' + this.tdFrom.substring(37);
+                },
+                brief_tdTo:function (){
+                    if(this.tdTo.length < 6) return "";
+                    return this.tdTo.substring(0, 6) + '...' + this.tdTo.substring(37);
+                },
+                brief_tdL2Hash:function (){
+                    if(this.tdL2Hash.length < 6) return "";
+                    return this.tdL2Hash.substring(0, 6) + '...' + this.tdL2Hash.substring(60);
+                },
+                brief_tdL1Hash:function (){
+                    if(this.tdL1Hash === "null") return "null";
+                    if(this.tdL1Hash.length < 6) return "";
+                    return this.tdL1Hash.substring(0, 6) + '...' + this.tdL1Hash.substring(60);
+                }
+
+            },
+            methods: {
+                async openFullScreen1() {
+                    this.fullscreenLoading = true;
+                    // await new Promise(resolve => setTimeout(() => {
+                    //     this.fullscreenLoading = false;
+                    //     resolve();
+                    // }, 5000));
+                },
+                closeFullScreen1() {
+                    this.fullscreenLoading = false;
+                },
+                showSuccessMessage(msg) {
+                    this.$message({
+                        message: msg,
+                        type: 'success',
+                        center: true,
+                        customClass: "up-message-success",
+                        duration: 2000
+                    });
+                },
+                showErrorMessage(msg) {
+                    this.$message({
+                        message: msg,
+                        type: 'error',
+                        center: true,
+                        customClass: "up-message-error",
+                        duration: 2000
+                    });
+                },
+                copySelectAddress: function (){
+                    let username = localStorage.getItem
+                    ("username");
+                    if(username && localStorage.getItem
+                    (username+"_select_address")){
+                        let selectAddress = localStorage.getItem
+                        (username+"_select_address")
+                        navigator.clipboard.writeText(selectAddress);
+                    }
+                    this.showSuccessMessage("复制成功");
+                },
+                handleSelect(key) {
+                    this.$refs.page_dapp.style.display = key === "1" ? "block":"none";
+                    this.$refs.page_assets.style.display = key === "2" ? "block":"none";
+                    this.$refs.page_nft.style.display = key === "3" ? "block":"none";
+
+                },
+                copyTdFrom() {
+                    if(this.tdFrom !== ""){
+                        navigator.clipboard.writeText(this.tdFrom);
+                        this.showSuccessMessage("复制成功");
+                    }
+                },
+                copyTdTo() {
+                    if(this.tdTo !== ""){
+                        navigator.clipboard.writeText(this.tdTo);
+                        this.showSuccessMessage("复制成功");
+                    }
+                },
+                redirectToL2Browser(){
+                    if(this.tdL2Hash !== "" && this.tdL2Hash !== "null"){
+                        window.open("https://explorer.aspark.space/tx/"+this.tdL2Hash, '_blank');
+                    }
+                },
+                redirectToL1Browser(){
+                    if(this.tdL1Hash !== "" && this.tdL1Hash !== "null"){
+                        window.open("https://goerli.etherscan.io/tx/"+this.tdL1Hash, '_blank');
+                    }
+                },
+                async clickEnableMpc(){
+                    this.openFullScreen1();
+                    await new Promise(resolve => setTimeout(resolve, 2500));
+                    this.closeFullScreen1();
+                    this.showMpcConfirm = false;
+                    this.showMpcSuccess = true;
+                    $('#mpcStatus').css({
+                        'color': '#409EFF',
+                        'border-color': '#409EFF'
+                    });
+                },
+                showKeyFragment(){
+                    $("#privateKeyFragment").text("4d3f50e5f1fbcf9fc0f18f6ffae");
+                },
+                navigateToDapp(baseUrl) {
+                    const username = localStorage.getItem('username'); // 获取存储的 JWT
+                    if (username) {
+                        const urlWithJwt = `${baseUrl}?username=${username}`; // 在 URL 中添加 JWT 作为查询参数
+                        window.open(urlWithJwt, '_blank'); // 在新窗口中打开链接
+                    } else {
+                        console.error("JWT token not found");
+                    }
+                }
+            }
+        })
+    </script>
+
+    <script>
+        // 隐藏和显示余额
+        let mainCoinAmount;
+        let hideMainCoin = false;
+
+        function hideMainCoinValue(){
+            if(!hideMainCoin) mainCoinAmount = document.getElementById("mainCoin_amount").innerText;
+            hideMainCoin = !hideMainCoin;
+            var icon = document.getElementById("mainCoin_amount");
+            if(hideMainCoin){
+                icon.innerText = "$*****";
+            }else{
+                icon.innerText = mainCoinAmount;
+            }
+        }
+    </script>
+    <script>
+        <!--   显示和隐藏币种菜单     -->
+        let coinMenu = document.getElementById("setting-coin-icon");
+        coinMenu.addEventListener('click', showCoinMenu);
+
+        async function showCoinMenu(){
+            if (addressOptionDiv.style.display !== "none") {
+                await displayL1Address();
+            }
+            let setIcon = document.querySelector(".setting-icons");
+            if(setIcon.getAttribute("data-display") === "false"){
+                setIcon.setAttribute("data-display", "true");
+                let newDevHtml = `
+                <div class="cover" style="height: 610px;" id="cover-chain-select"></div>
+                <div class="chain-select-container" id="chain-select-container">
+\t<div class="chain-select-options chain-options" style="background-color: var(--up-background)">
+\t\t<div class="option" id="chain-ETH">
+\t\t\t<iconpark-icon icon-id="ETH" class="iconpark icon-ETH" name="" size="1em" width="24" height="24"></iconpark-icon>
+\t\t\t<div class="label">ETH</div>
+\t\t\t<iconpark-icon icon-id="round-select" class="iconpark icon-round-select round-select" name="" size="1em" width="" height=""></iconpark-icon>
+\t\t</div>
+\t\t<div class="option" id="chain-BSC">
+\t\t\t<iconpark-icon icon-id="BSC" class="iconpark icon-BSC" name="" size="1em" width="24" height="24"></iconpark-icon>
+\t\t\t<div class="label">BSC</div>
+\t\t\t<!---->
+\t\t</div>
+\t\t<div class="option" id="chain-Polygon">
+\t\t\t<iconpark-icon icon-id="Polygon" class="iconpark icon-Polygon" name="" size="1em" width="24" height="24"></iconpark-icon>
+\t\t\t<div class="label">Polygon</div>
+\t\t\t<!---->
+\t\t</div>
+\t\t<div class="option" id="chain-Arbitrum">
+\t\t\t<iconpark-icon icon-id="Arbitrum" class="iconpark icon-Arbitrum" name="" size="1em" width="24" height="24"></iconpark-icon>
+\t\t\t<div class="label">Arbitrum</div>
+\t\t\t<!---->
+\t\t</div>
+\t\t<div class="option" id="chain-Avalanche">
+\t\t\t<iconpark-icon icon-id="Avalanche" class="iconpark icon-Avalanche" name="" size="1em" width="24" height="24"></iconpark-icon>
+\t\t\t<div class="label">Avalanche</div>
+\t\t\t<!---->
+\t\t</div>
+\t\t<div class="option" id="chain-KCC">
+\t\t\t<iconpark-icon icon-id="KCC" class="iconpark icon-KCC" name="" size="1em" width="24" height="24"></iconpark-icon>
+\t\t\t<div class="label">KCC</div>
+\t\t\t<!---->
+\t\t</div>
+\t\t<div class="option" id="chain-Rangers">
+\t\t\t<iconpark-icon icon-id="Rangers" class="iconpark icon-Rangers" name="" size="1em" width="24" height="24"></iconpark-icon>
+\t\t\t<div class="label">Rangers</div>
+\t\t\t<!---->
+\t\t</div>
+\t\t<div class="option" id="chain-OKC">
+\t\t\t<iconpark-icon icon-id="OKC" class="iconpark icon-OKC" name="" size="1em" width="24" height="24"></iconpark-icon>
+\t\t\t<div class="label">OKC</div>
+\t\t\t<!---->
+\t\t</div>
+\t</div>
+</div>
+            `;
+                coinMenu.insertAdjacentHTML('afterend', newDevHtml);
+                document.querySelector(".up-home-page-header").classList.add("up-home-page-header-bg");
+
+                document.getElementById("chain-ETH").addEventListener("click", showCoinMenu);
+            } else {
+                setIcon.setAttribute("data-display", "false");
+                let e1 = document.getElementById("cover-chain-select");
+                e1.parentElement.removeChild(e1);
+                let e2 = document.getElementById("chain-select-container");
+                e2.parentElement.removeChild(e2);
+                document.querySelector(".up-home-page-header").classList.remove("up-home-page-header-bg");
+            }
+
+        }
+
+    </script>
+    <script>
+        let transferDiv = document.querySelector("#page-index > div:nth-child(2)");
+        let transferIcon = document.querySelector("#page-index > div.main-container > div.shortcut > div.btn-box.active");
+        let closeIcon = document.querySelector("#receive-dialog > div.title > iconpark-icon");
+        transferIcon.addEventListener('click', function (){
+            transferDiv.setAttribute("style", "z-index: 2012;");
+        })
+        closeIcon.addEventListener('click', function (){
+            transferDiv.setAttribute("style", "z-index: 2012; display: none;");
+        })
+    </script>
+    <script type="text/javascript" src="js/const/fido-api-constants.js"></script>
+    <script src="js/utils/common.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+    <script src="js/dist/walletConnect.js"></script>
+    </body>
+    <div style="all: initial;">
+        <div id="__hcfy__" style="all: initial;"></div>
+    </div>
+</html>
