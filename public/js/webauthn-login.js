@@ -197,7 +197,7 @@ class e extends HTMLElement {
                 body: JSON.stringify({username: e})
             }), {assertionId: i, publicKeyCredentialRequestOptions: s, message: m1} = await n.json();
 
-            s.allowCredentials = [];
+
             if (!n.ok) {
                 alert(m1);
                 throw new Error("Could not successfuly start login");
