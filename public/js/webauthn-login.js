@@ -227,13 +227,15 @@ class e extends HTMLElement {
             }
             const l = await u.json();
             const redirectUrl = localStorage.getItem('redirect');
-
-            window.opener.postMessage({
-                type: 'loginSuccess',
-                jwt: l.jwt,
-                username: l.username,
-            }, redirectUrl);
-            window.close();
+            const isPopup = window.opener !== null;
+            if(isPopup) {  // 说明是从solo-mission跳过去的
+                window.opener.postMessage({
+                    type: 'loginSuccess',
+                    jwt: l.jwt,
+                    username: l.username,
+                }, redirectUrl);
+                window.close();
+            }
             this.dispatchEvent(new CustomEvent("login-finished", {detail: l}))
         } catch (t) {
             this.dispatchEvent(new CustomEvent("login-error", {detail: {message: t.message}}))
