@@ -8,6 +8,11 @@ class e extends HTMLElement {
             credentials: "include",
             headers: {"Content-Type": "application/json"}
         };
+        const params = new URLSearchParams(window.location.search);
+        const redirectUrl = params.get('redirect');
+        if(redirectUrl) {
+            localStorage.setItem('redirect', redirectUrl);
+        }
     }
 
     static get observedAttributes() {
