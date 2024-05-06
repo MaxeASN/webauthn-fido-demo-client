@@ -8,6 +8,11 @@ class e extends HTMLElement {
             credentials: "include",
             headers: {"Content-Type": "application/json"}
         }
+        const params = new URLSearchParams(window.location.search);
+        const redirectUrl = params.get('redirect');
+        if(redirectUrl) {
+            localStorage.setItem('redirect', redirectUrl);
+        }
     }
 
     static get observedAttributes() {
@@ -221,6 +226,14 @@ class e extends HTMLElement {
                 throw new Error("Could not successfuly complete login");
             }
             const l = await u.json();
+            const redirectUrl = localStorage.getItem('redirect');
+
+            window.opener.postMessage({
+                type: 'loginSuccess',
+                jwt: l.jwt,
+                username: l.username,
+            }, redirectUrl);
+            window.close();
             this.dispatchEvent(new CustomEvent("login-finished", {detail: l}))
         } catch (t) {
             this.dispatchEvent(new CustomEvent("login-error", {detail: {message: t.message}}))
