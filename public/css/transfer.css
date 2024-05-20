@@ -1,0 +1,41 @@
+.list-item__icon {
+    grid-area: icon;
+    align-self: center;
+}
+.list-item__heading {
+    font-size: 1rem;
+    font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 140%;
+    font-style: normal;
+    font-weight: normal;
+    grid-area: head;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.transaction-list-item .list-item__subheading {
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.list-item__subheading {
+    font-size: 0.75rem;
+    font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 140%;
+    font-style: normal;
+    font-weight: normal;
+    grid-area: sub;
+    color: var(--color-text-alternative);
+    margin-top: 4px;
+}
+.list-item__actions {
+    grid-area: actions;
+}
+.list-item__right-content {
+    grid-area: right;
+    text-align: right;
+    align-items: flex-end;
+    overflow: hidden;
+    white-space: nowrap;
+}

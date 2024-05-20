@@ -1,0 +1,114 @@
+.text-prompt {
+    margin: 10px auto 0;
+}
+
+.text-prompt > span {
+    color: white;
+    font-family: Cool Super Black, Sans-serif, serif;
+    font-size: 20px;
+}
+
+.scan-video-container {
+    position: relative;
+    /*width: 100%;*/
+    /*aspect-ratio: 4/3;*/
+    width: 320px;
+    height: 240px;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.video-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgb(70, 70, 70);
+}
+
+.border-container {
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.border-container div {
+    position: absolute;
+    border: 4px solid whitesmoke;
+    width: 40px;
+    height: 40px;
+}
+
+.border-container div:first-child {
+    top: 0;
+    left: 0;
+    border-bottom: none;
+    border-right: none;
+    border-top-left-radius: 20px;
+}
+
+.border-container div:nth-child(2) {
+    top: 0;
+    right: 0;
+    border-bottom: none;
+    border-left: none;
+    border-top-right-radius: 20px;
+}
+
+.border-container div:nth-child(3) {
+    bottom: 0;
+    left: 0;
+    border-top: none;
+    border-right: none;
+    border-bottom-left-radius: 20px;
+}
+
+.border-container div:nth-child(4) {
+    bottom: 0;
+    right: 0;
+    border-top: none;
+    border-left: none;
+    border-bottom-right-radius: 20px;
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    /*object-fit: cover;*/
+    transform: scaleX(-1);
+}
+
+#canvasElement1 {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#canvasElement2 {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#receive-dialog {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: #6f88b9;
+}
+
+html .el-dialog {
+    width: 90%;
+    max-width: 342px;
+    background: rgba(0,0,0,0.8);;
+    border-radius: 20px;
+    margin: 0;
+}

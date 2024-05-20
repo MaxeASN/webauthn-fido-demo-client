@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/png" size="16x16" href="img/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" size="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" size="32x32" href="img/icons/favicon.ico">
+    <link rel="shortcut icon" href="img/icons/favicon.ico">
+    <link rel="manifest" href="img/icons/manifest.json">
+    <meta name="theme-color" content="#1F202A">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    <title>MaxeLabs</title>
+    <!--    <script defer="defer" src="/js/chunk-vendors.4027e50b.js" type="text/javascript"></script>-->
+    <!--    <script defer="defer" src="/js/app.6cf805e6.js" type="text/javascript"></script>-->
+    <link href="./css/chunk-vendors.610733ae.css" rel="stylesheet">
+    <link href="./css/app.f705e97f.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/img/icons/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4DBA87">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="unipass-wallet">
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#4DBA87">
+    <meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <style type="text/css">
+        .jv-node {
+            position: relative
+        }
+
+        .jv-node:after {
+            content: ','
+        }
+
+        .jv-node:last-of-type:after {
+            content: ''
+        }
+
+        .jv-node.toggle {
+            margin-left: 13px !important
+        }
+
+        .jv-node .jv-node {
+            margin-left: 25px
+        }
+    </style>
+    <style type="text/css">
+        .jv-container {
+            box-sizing: border-box;
+            position: relative
+        }
+
+        .jv-container.boxed {
+            border: 1px solid #eee;
+            border-radius: 6px
+        }
+
+        .jv-container.boxed:hover {
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15);
+            border-color: transparent;
+            position: relative
+        }
+
+        .jv-container.jv-light {
+            background: #fff;
+            white-space: nowrap;
+            color: #525252;
+            font-size: 14px;
+            font-family: Consolas, Menlo, Courier, monospace
+        }
+
+        .jv-container.jv-light .jv-ellipsis {
+            color: #999;
+            background-color: #eee;
+            display: inline-block;
+            line-height: 0.9;
+            font-size: 0.9em;
+            padding: 0px 4px 2px 4px;
+            margin: 0 4px;
+            border-radius: 3px;
+            vertical-align: 2px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none
+        }
+
+        .jv-container.jv-light .jv-button {
+            color: #49b3ff
+        }
+
+        .jv-container.jv-light .jv-key {
+            color: #111111;
+            margin-right: 4px
+        }
+
+        .jv-container.jv-light .jv-item.jv-array {
+            color: #111111
+        }
+
+        .jv-container.jv-light .jv-item.jv-boolean {
+            color: #fc1e70
+        }
+
+        .jv-container.jv-light .jv-item.jv-function {
+            color: #067bca
+        }
+
+        .jv-container.jv-light .jv-item.jv-number {
+            color: #fc1e70
+        }
+
+        .jv-container.jv-light .jv-item.jv-object {
+            color: #111111
+        }
+
+        .jv-container.jv-light .jv-item.jv-undefined {
+            color: #e08331
+        }
+
+        .jv-container.jv-light .jv-item.jv-string {
+            color: #42b983;
+            word-break: break-word;
+            white-space: normal
+        }
+
+        .jv-container.jv-light .jv-item.jv-string .jv-link {
+            color: #0366d6
+        }
+
+        .jv-container.jv-light .jv-code .jv-toggle:before {
+            padding: 0px 2px;
+            border-radius: 2px
+        }
+
+        .jv-container.jv-light .jv-code .jv-toggle:hover:before {
+            background: #eee
+        }
+
+        .jv-container .jv-code {
+            overflow: hidden;
+            padding: 30px 20px
+        }
+
+        .jv-container .jv-code.boxed {
+            max-height: 300px
+        }
+
+        .jv-container .jv-code.open {
+            max-height: initial !important;
+            overflow: visible;
+            overflow-x: auto;
+            padding-bottom: 45px
+        }
+
+        .jv-container .jv-toggle {
+            background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB3aWR0aD0iOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KIAo8cG9seWdvbiBwb2ludHM9IjAsMCA4LDggMCwxNiIKc3R5bGU9ImZpbGw6IzY2NjtzdHJva2U6cHVycGxlO3N0cm9rZS13aWR0aDowIiAvPgo8L3N2Zz4=);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            cursor: pointer;
+            width: 10px;
+            height: 10px;
+            margin-right: 2px;
+            display: inline-block;
+            -webkit-transition: -webkit-transform 0.1s;
+            transition: -webkit-transform 0.1s;
+            transition: transform 0.1s;
+            transition: transform 0.1s, -webkit-transform 0.1s
+        }
+
+        .jv-container .jv-toggle.open {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg)
+        }
+
+        .jv-container .jv-more {
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            width: 100%;
+            text-align: center;
+            cursor: pointer
+        }
+
+        .jv-container .jv-more .jv-toggle {
+            position: relative;
+            top: 40%;
+            z-index: 2;
+            color: #888;
+            -webkit-transition: all 0.1s;
+            transition: all 0.1s;
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg)
+        }
+
+        .jv-container .jv-more .jv-toggle.open {
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg)
+        }
+
+        .jv-container .jv-more:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 20%, rgba(230, 230, 230, 0.3) 100%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(230, 230, 230, 0.3) 100%);
+            -webkit-transition: all 0.1s;
+            transition: all 0.1s
+        }
+
+        .jv-container .jv-more:hover .jv-toggle {
+            top: 50%;
+            color: #111
+        }
+
+        .jv-container .jv-more:hover:after {
+            background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 20%, rgba(230, 230, 230, 0.3) 100%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(230, 230, 230, 0.3) 100%)
+        }
+
+        .jv-container .jv-button {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px;
+            z-index: 5
+        }
+
+        .jv-container .jv-button.copied {
+            opacity: 0.4;
+            cursor: default
+        }
+
+        .jv-container .jv-tooltip {
+            position: absolute
+        }
+
+        .jv-container .jv-tooltip.right {
+            right: 15px
+        }
+
+        .jv-container .jv-tooltip.left {
+            left: 15px
+        }
+
+        .jv-container .j-icon {
+            font-size: 12px
+        }
+    </style>
+    <link href="https://www.googletagmanager.com" rel="preconnect">
+    <!--    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HNDL91TELQ&amp;l=dataLayer" charset="utf-8"></script>-->
+    <!--    <script recaptcha-v3-script="" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>-->
+    <link rel="stylesheet" type="text/css" href="./css/6592.acb1dd5a.css">
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.13/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui@2.15.13/lib/index.js"></script>
+    <script type="module" src="js/walletConnect-transaction.js"></script>
+    <link href="./css/manageFido.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("img/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="">
+<noscript>
+    <strong>We're sorry but UniPass doesn't work properly without JavaScript enabled. Please enable it to
+        continue.</strong>
+</noscript>
+<div id="app" data-v-app="" v-cloak>
+    <!---->
+    <div class="up-app">
+        <div class="up-loading" style="display: none;">
+            <div class="loader">
+                <div class="orbe" style="--index:0;"></div>
+                <div class="orbe" style="--index:1;"></div>
+                <div class="orbe" style="--index:2;"></div>
+                <div class="orbe" style="--index:3;"></div>
+                <div class="orbe" style="--index:4;"></div>
+            </div>
+            <div class="tx-tip">发送交易中，请耐心等待…</div>
+        </div>
+        <div id="page-send" class="page-sign page"
+             style="border: 1px solid #424b79; background-color: rgb(12 10 27 / 75%);">
+            <div class="up-header">
+                <div class="left" onclick="window.location.href='/home'">
+                    <!---->
+                    <iconpark-icon icon-id="back" class="iconpark icon-back" name="" size="1em" width="" height=""
+                                   style="color: white"></iconpark-icon>
+                    <div class="title" style="color: white">Send</div>
+                </div>
+                <div class="right">
+                    <!---->
+                </div>
+                <el-button
+                        size="mini"
+                        type="primary"
+                        @click="showAddConfirm = true">add
+                </el-button>
+            </div>
+            <el-table
+                    :data="tableData"
+                    style="width: 100%" :header-cell-style="{background:'transparent'}" max-height=722>
+                <el-table-column label="FIDO ID" width="180" :show-overflow-tooltip='true'>
+                    <template slot-scope="scope">
+                        <span>{{ scope.row.fidoId }}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column label="OPERATION" align="right">
+                    <template slot-scope="scope">
+                        <el-button v-if="scope.row.fidoId !== currentFidoId" size="mini" type="danger"
+                                   @click="handleDelete(scope.$index, scope.row)">delete
+                        </el-button>
+                        <el-tag v-if="scope.row.fidoId === currentFidoId" type="success">当前设备</el-tag>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </div>
+        <div class="el-overlay" style="z-index: 2001; display: none;">
+            <div role="dialog" aria-modal="true" aria-labelledby="el-id-2950-0" aria-describedby="el-id-2950-1"
+                 class="el-overlay-dialog"></div>
+        </div>
+        <div class="el-overlay" style="z-index: 2002; display: none;">
+            <div aria-modal="true" aria-labelledby="el-id-2950-2" aria-describedby="el-id-2950-3"
+                 class="el-drawer rtl up-header-more" role="dialog" style="width: 290px;">
+                <span class="el-drawer__sr-focus" tabindex="-1"></span>
+                <header class="el-drawer__header">
+                    <span id="el-id-2950-2" role="heading" class="el-drawer__title"></span>
+                    <button aria-label="Close this dialog" class="el-drawer__close-btn" type="button">
+                        <i class="el-icon el-drawer__close">
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor"
+                                      d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+                            </svg>
+                        </i>
+                    </button>
+                </header>
+                <!--v-if-->
+                <!--v-if-->
+            </div>
+        </div>
+        <div class="el-overlay" style="z-index: 2003; display: none;">
+            <div role="dialog" aria-modal="true" aria-label="安全验证" aria-describedby="el-id-2950-4"
+                 class="el-overlay-dialog"></div>
+        </div>
+        <!---->
+    </div>
+    <div class="el-overlay" id="add-confirm" style="z-index: 1998; display: none;" v-show="this.showAddConfirm">
+        <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7"
+             class="el-overlay-dialog">
+            <div class="el-dialog el-dialog--center drawer-receive-dialog" tabindex="-1"
+                 style="background-color: rgb(62 56 106);">
+                <header class="el-dialog__header">
+                    <span role="heading" class="el-dialog__title"></span>
+                    <!--v-if-->
+                </header>
+                <div id="el-id-3005-7" class="el-dialog__body">
+                    <div>
+                        <div id="receive-dialog" data-v-7bb2b20a="">
+                            <!--                            <div class="title" id="title-confirm" data-v-7bb2b20a="" style="display: flex; justify-content: center">-->
+                            <!--                                <span data-v-7bb2b20a="" style="font-weight: bolder;font-size: 1.2em;color: white;">Add Confirm</span>-->
+                            <!--                            </div>-->
+                            <div class="amount-confirm-text"
+                                 style="font-weight: bolder;font-size: 1.2em;color: white; margin: 20px">Continue to add
+                                fido device.
+                            </div>
+
+                            <div id="confirm-button"
+                                 style="margin-top: 20px;display: flex; justify-content: space-around;">
+                                <button class="el-button el-button--primary copy up-button copy confirm-add-fido" aria-disabled="false"
+                                        type="button" data-v-7bb2b20a="" style="width: 28%;height: 46px;" @click="addFidoDevice">
+                                    <span class="">Continue</span>
+                                </button>
+                                <button class="el-button el-button--primary copy up-button copy" aria-disabled="false"
+                                        type="button" data-v-7bb2b20a=""
+                                        style="width: 28%;height: 46px; background: linear-gradient(320deg, #bdb8d1 0, #bdb8d1 100%);"
+                                        @click="showAddConfirm = false">
+                                    <span class="">Cancel</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--v-if-->
+            </div>
+        </div>
+    </div>
+    <div class="el-overlay" id="delete-confirm" style="z-index: 1998; display: none" v-show="showDeleteConfirm">
+        <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7"
+             class="el-overlay-dialog">
+            <div class="el-dialog el-dialog--center drawer-receive-dialog" tabindex="-1"
+                 style="background-color: rgb(62 56 106);">
+                <header class="el-dialog__header">
+                    <span role="heading" class="el-dialog__title"></span>
+                    <!--v-if-->
+                </header>
+                <div id="el-id-3005-7" class="el-dialog__body">
+                    <div>
+                        <div id="receive-dialog" data-v-7bb2b20a="">
+                            <!--                            <div class="title" id="title-confirm" data-v-7bb2b20a="" style="display: flex; justify-content: center">-->
+                            <!--                                <span data-v-7bb2b20a="" style="font-weight: bolder;font-size: 1.2em;color: white;">Add Confirm</span>-->
+                            <!--                            </div>-->
+                            <div class="amount-confirm-text"
+                                 style="font-weight: bolder;font-size: 1.2em;color: white; margin: 20px">Do you want to
+                                delete the device with fido id "{{ deleteFidoId }}"?
+                            </div>
+
+                            <div id="confirm-button"
+                                 style="margin-top: 20px; display: flex; justify-content: space-around;">
+                                <button id="delete-confirm-button1"
+                                        class="el-button el-button--primary copy up-button copy" aria-disabled="false"
+                                        type="button" data-v-7bb2b20a="" style="width: 28%;height: 46px;" @click="deleteFidoDevice">
+                                    <span class="">Confirm</span>
+                                </button>
+                                <button class="el-button el-button--primary copy up-button copy" aria-disabled="false"
+                                        type="button" data-v-7bb2b20a=""
+                                        style="width: 28%;height: 46px; background: linear-gradient(320deg, #bdb8d1 0, #bdb8d1 100%);"
+                                        @click="showDeleteConfirm=false">
+                                    <span class="">Cancel</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--v-if-->
+            </div>
+        </div>
+    </div>
+<!--    <div id="scanDiv" class="el-overlay" style="z-index: 1999; display: none">-->
+<!--        <div role="dialog" aria-modal="true" aria-label="扫码" aria-describedby="el-id-582-44"-->
+<!--             class="el-overlay-dialog">-->
+<!--            <div tabindex="-1" class="el-dialog el-dialog&#45;&#45;center up-confirm">-->
+<!--                <div class="text-prompt">-->
+<!--                    <span>{{ text }}</span>-->
+<!--                </div>-->
+<!--                <div id="el-id-6796-24" class="el-dialog__body">-->
+<!--                    <div class="scan-modal-content">-->
+<!--                        <div class="scan-video">-->
+<!--                            <div class="scan-video-container">-->
+<!--                                <div class="video-container" ref="videoContainer" v-loading="processingFace" element-loading-background="rgba(0, 0, 0, 0.70)" element-loading-text="loading camera...">-->
+<!--                                    <video ref="video"  id="video" autoplay muted loop playsinline></video>-->
+<!--                                    <canvas id="canvasElement1" style="display: none"></canvas>-->
+<!--                                    <canvas id="canvasElement2"></canvas>-->
+<!--                                </div>-->
+<!--                                <div class="border-container">-->
+<!--                                    <div></div>-->
+<!--                                    <div></div>-->
+<!--                                    <div></div>-->
+<!--                                    <div></div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <!---->
+</div>
+<script src="./iconpark.329803f7.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    Vue.config.silent = true;
+    const app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                tableData: [],
+                deleteFidoId: '0xABCXxxxxxxxxxxXXXXXXXXXXXXXXXX',
+                currentFidoId: '',
+                showAddConfirm: false,
+                showDeleteConfirm: false,
+                text: "1P1A detecting...",
+                constraints: {
+                    video: true,
+                },
+                videoStatus: false,
+                processingFace: true,
+                detectStartTime: 0,
+                showDetectTips: false,
+                rightPosition : false,
+                videoTrack: undefined,
+                fetchOptions: {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {"Content-Type": "application/json"}
+                },
+            }
+        },
+        methods: {
+            handleDelete(index, row) {
+                this.deleteFidoId = row.fidoId;
+                this.showDeleteConfirm = true;
+            },
+            showErrorMessage(msg) {
+                this.$message({
+                    message: msg,
+                    type: 'error',
+                    center: true,
+                    customClass: "up-message-error",
+                    duration: 2000
+                });
+            },
+            changeLoadingText(text) {
+                document.querySelector(".el-loading-text").innerText = text;
+            },
+            customAlert(text) {
+                this.$alert('<i class="el-icon-warning"></i> ' + text, {
+                    confirmButtonText: 'confirm',
+                    dangerouslyUseHTMLString: true
+                });
+            },
+            async _getPublicKeyCredentialCreateOptionsDecoder() {
+                const {decodePublicKeyCredentialCreateOptions: e} = await import("../js/utils/parse.js");
+                return e
+            },
+            async _getRegisterCredentialEncoder() {
+                const {encodeRegisterCredential: e} = await import("../js/utils/parse.js");
+                return e
+            },
+            async _getPublicKeyCredentialRequestOptionsDecoder() {
+                const {decodePublicKeyCredentialRequestOptions: e} = await import("../js/utils/parse.js");
+                return e
+            },
+            async _getLoginCredentialEncoder() {
+                const {encodeLoginCredential: e} = await import("../js/utils/parse.js");
+                return e
+            },
+
+            async addFidoDevice() {
+                let username = localStorage.getItem("username");
+                console.info(username);
+                const registrationAddStartUrl = SERVER + "/api/diyRegister/add_start";
+                const registrationAddFinishUrl = SERVER + "/api/diyRegister/add_finish";
+                try {
+                    if (!window.PublicKeyCredential) {
+                        alert("Fido is not supported on this browser");
+                        throw new Error("Web Authentication is not supported on this platform");
+                    }
+
+                    const i = await fetch(registrationAddStartUrl, {
+                        ...this.fetchOptions,
+                        body: JSON.stringify({username: username})
+                    }), {
+                        status: r,
+                        registrationId: n,
+                        publicKeyCredentialCreationOptions: s,
+                        message: m1
+                    } = await i.json();
+
+                    if (!i.ok) {
+                        alert(m1);
+                        throw new Error(m1 || "Could not successfuly start registration");
+                    }
+                    // add by mark   need to delete---------------------------
+                    s.user.id = "DEMO//9fX19ERU1P";
+                    // add by mark   need to delete---------------------------
+                    const o = await this._getPublicKeyCredentialCreateOptionsDecoder(),
+                        a = await navigator.credentials.create({publicKey: o(s)});
+
+                    const u = await this._getRegisterCredentialEncoder(),
+                        l = await fetch(registrationAddFinishUrl, {
+                            ...this.fetchOptions,
+                            body: JSON.stringify({
+                                registrationId: n,
+                                credential: u(a),
+                                userAgent: window.navigator.userAgent
+                            })
+                        }), c = await l.json();
+                    if (!l.ok) {
+                        alert(c.message);
+                        throw new Error(c.message || "Could not successfuly complete registration");
+                    } else {
+                        alert("添加成功");
+                        this.updateFidoList();
+                    }
+                } catch (t) {
+                    alert("The current device is already registered, or something went wrong.");
+                    console.error(t.message);
+                } finally {
+                    this.showAddConfirm = false;
+                }
+            },
+            updateFidoList() {
+                fetch(GET_CREDENTIALS,{credentials: 'include'})
+                    .then(response=> response.json())
+                    .then(({ code: c, message: m, data: d }) => [c, m, d])
+                    .then(async ([code, message, data]) => {
+                        await processBadResponse(code);
+                        if (code != 1) throw new Error(message);
+                        app.tableData = data.map(item => {
+                            return {fidoId: item}
+                        })
+                    }).catch(error => console.error(error));
+            },
+            async deleteFidoDevice() {
+                const fidoId = app.deleteFidoId;
+                const deleteStartUrl = SERVER + "/api/credential/delete/start";
+                const deleteFinishUrl = SERVER + "/api/credential/delete/finish";
+                try {
+                    if (!window.PublicKeyCredential) {
+                        alert("Fido is not supported on this browser");
+                        throw new Error("Web Authentication is not supported on this platform");
+                    }
+                    window.dispatchEvent(new CustomEvent("delete-credential-started"));
+                    const n = await fetch(deleteStartUrl, {
+                        ...this.fetchOptions,
+                        body: JSON.stringify({fidoId: fidoId})
+                    }), {assertionId: i, publicKeyCredentialRequestOptions: s, requestParams: p} = await n.json();
+                    console.info("teste");
+                    processBadStatus(n);
+                    if (!n.ok) throw new Error("Could not successfuly start delete");
+                    const r = await this._getPublicKeyCredentialRequestOptionsDecoder(),
+                        o = await navigator.credentials.get({publicKey: r(s)});
+                    window.dispatchEvent(new CustomEvent("delete-retrieved"));
+                    const a = await this._getLoginCredentialEncoder(),
+                        cre = a(o);
+                    cre.response.userHandle = s.userHandle;
+                    const u = await fetch(deleteFinishUrl, {
+                        ...this.fetchOptions,
+                        body: JSON.stringify({assertionId: i, credential: cre})
+                    });
+                    if (!u.ok) throw new Error("调用接口出错");
+                    const {code: c, message: m, data: d} = await u.json();
+                    processBadResponse(c);
+                    if (c != 1) {
+                        throw new Error(m);
+                    }
+                    this.updateFidoList();
+                    app.showDeleteConfirm = false;
+                    window.dispatchEvent(new CustomEvent("login-finished", {detail: {code: c, message: m, data: d}}))
+                } catch (t) {
+                    window.dispatchEvent(new CustomEvent("login-error", {detail: {message: t.message}}))
+                    throw new Error(t.message);
+                } finally {
+                    this.showDeleteConfirm = false;
+                }
+            }
+        }
+    })
+</script>
+<script type="text/javascript" src="js/const/fido-api-constants.js"></script>
+<script src="js/utils/common.js"></script>
+<script src="js/dist/manageFido.js"></script>
+</body>
+<div style="all: initial;">
+    <div id="__hcfy__" style="all: initial;"></div>
+</div>
+</html>

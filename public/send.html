@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/png" size="16x16" href="img/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" size="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" size="32x32" href="img/icons/favicon.ico">
+    <link rel="shortcut icon" href="img/icons/favicon.ico">
+    <link rel="manifest" href="img/icons/manifest.json">
+    <meta name="theme-color" content="#1F202A">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    <title>MaxeLabs</title>
+<!--    <script defer="defer" src="/js/chunk-vendors.4027e50b.js" type="text/javascript"></script>-->
+<!--    <script defer="defer" src="/js/app.6cf805e6.js" type="text/javascript"></script>-->
+    <link href="./css/chunk-vendors.610733ae.css" rel="stylesheet">
+    <link href="./css/send.css" rel="stylesheet">
+    <link href="./css/app.f705e97f.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/img/icons/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4DBA87">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="unipass-wallet">
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#4DBA87">
+    <meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <style type="text/css">
+        .jv-node{position:relative}.jv-node:after{content:','}.jv-node:last-of-type:after{content:''}.jv-node.toggle{margin-left:13px !important}.jv-node .jv-node{margin-left:25px}
+    </style>
+    <style type="text/css">
+        .jv-container{box-sizing:border-box;position:relative}.jv-container.boxed{border:1px solid #eee;border-radius:6px}.jv-container.boxed:hover{box-shadow:0 2px 7px rgba(0,0,0,0.15);border-color:transparent;position:relative}.jv-container.jv-light{background:#fff;white-space:nowrap;color:#525252;font-size:14px;font-family:Consolas, Menlo, Courier, monospace}.jv-container.jv-light .jv-ellipsis{color:#999;background-color:#eee;display:inline-block;line-height:0.9;font-size:0.9em;padding:0px 4px 2px 4px;margin:0 4px;border-radius:3px;vertical-align:2px;cursor:pointer;-webkit-user-select:none;user-select:none}.jv-container.jv-light .jv-button{color:#49b3ff}.jv-container.jv-light .jv-key{color:#111111;margin-right:4px}.jv-container.jv-light .jv-item.jv-array{color:#111111}.jv-container.jv-light .jv-item.jv-boolean{color:#fc1e70}.jv-container.jv-light .jv-item.jv-function{color:#067bca}.jv-container.jv-light .jv-item.jv-number{color:#fc1e70}.jv-container.jv-light .jv-item.jv-object{color:#111111}.jv-container.jv-light .jv-item.jv-undefined{color:#e08331}.jv-container.jv-light .jv-item.jv-string{color:#42b983;word-break:break-word;white-space:normal}.jv-container.jv-light .jv-item.jv-string .jv-link{color:#0366d6}.jv-container.jv-light .jv-code .jv-toggle:before{padding:0px 2px;border-radius:2px}.jv-container.jv-light .jv-code .jv-toggle:hover:before{background:#eee}.jv-container .jv-code{overflow:hidden;padding:30px 20px}.jv-container .jv-code.boxed{max-height:300px}.jv-container .jv-code.open{max-height:initial !important;overflow:visible;overflow-x:auto;padding-bottom:45px}.jv-container .jv-toggle{background-image:url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB3aWR0aD0iOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KIAo8cG9seWdvbiBwb2ludHM9IjAsMCA4LDggMCwxNiIKc3R5bGU9ImZpbGw6IzY2NjtzdHJva2U6cHVycGxlO3N0cm9rZS13aWR0aDowIiAvPgo8L3N2Zz4=);background-repeat:no-repeat;background-size:contain;background-position:center center;cursor:pointer;width:10px;height:10px;margin-right:2px;display:inline-block;-webkit-transition:-webkit-transform 0.1s;transition:-webkit-transform 0.1s;transition:transform 0.1s;transition:transform 0.1s, -webkit-transform 0.1s}.jv-container .jv-toggle.open{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.jv-container .jv-more{position:absolute;z-index:1;bottom:0;left:0;right:0;height:40px;width:100%;text-align:center;cursor:pointer}.jv-container .jv-more .jv-toggle{position:relative;top:40%;z-index:2;color:#888;-webkit-transition:all 0.1s;transition:all 0.1s;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.jv-container .jv-more .jv-toggle.open{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.jv-container .jv-more:after{content:"";width:100%;height:100%;position:absolute;bottom:0;left:0;z-index:1;background:-webkit-linear-gradient(top, rgba(0,0,0,0) 20%, rgba(230,230,230,0.3) 100%);background:linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(230,230,230,0.3) 100%);-webkit-transition:all 0.1s;transition:all 0.1s}.jv-container .jv-more:hover .jv-toggle{top:50%;color:#111}.jv-container .jv-more:hover:after{background:-webkit-linear-gradient(top, rgba(0,0,0,0) 20%, rgba(230,230,230,0.3) 100%);background:linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(230,230,230,0.3) 100%)}.jv-container .jv-button{position:relative;cursor:pointer;display:inline-block;padding:5px;z-index:5}.jv-container .jv-button.copied{opacity:0.4;cursor:default}.jv-container .jv-tooltip{position:absolute}.jv-container .jv-tooltip.right{right:15px}.jv-container .jv-tooltip.left{left:15px}.jv-container .j-icon{font-size:12px}
+    </style>
+    <link href="https://www.googletagmanager.com" rel="preconnect">
+<!--    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HNDL91TELQ&amp;l=dataLayer" charset="utf-8"></script>-->
+<!--    <script recaptcha-v3-script="" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>-->
+    <link rel="stylesheet" type="text/css" href="./css/6592.acb1dd5a.css">
+    <script type="module" src="js/webauthn-transaction.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <style>
+        body {
+            background-image: url("img/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="">
+<noscript>
+    <strong>We're sorry but UniPass doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="app" data-v-app="">
+    <!---->
+    <div class="up-app">
+        <div class="up-loading" style="display: none;">
+            <div class="loader">
+                <div class="orbe" style="--index:0;"></div>
+                <div class="orbe" style="--index:1;"></div>
+                <div class="orbe" style="--index:2;"></div>
+                <div class="orbe" style="--index:3;"></div>
+                <div class="orbe" style="--index:4;"></div>
+            </div>
+            <div class="tx-tip">发送交易中，请耐心等待…</div>
+        </div>
+        <div id="page-send" class="page-sign page" style="border: 1px solid #424b79; background-color: rgb(12 10 27 / 75%);">
+            <div class="up-header">
+                <div class="left" onclick="window.location.href='/home'">
+                    <!---->
+                    <iconpark-icon icon-id="back" class="iconpark icon-back" name="" size="1em" width="" height="" style="color: white"></iconpark-icon>
+                    <div class="title" style="color: white">Send</div>
+                </div>
+                <div class="right">
+                    <!---->
+                </div>
+            </div>
+            <form class="el-form el-form--default el-form--label-right send-form">
+                <div class="label" style="color: white">Send Assets</div>
+                <div class="token">
+                    <div class="up-token index">
+                        <div class="token-box">
+                            <iconpark-icon icon-id="coin-light" class="iconpark icon-coin-light box-token" name="" size="1em" width="" height=""></iconpark-icon>
+                            <iconpark-icon icon-id="ETH" class="iconpark icon-ETH box-chain" name="" size="1em" width="" height=""></iconpark-icon>
+                        </div>
+                        <div class="index">
+                            <div class="index-title">undefined</div>
+                            <div class="index-subtitle" style="color: white">balance
+                                <span id="balance_amount">undefined</span>
+                                <span id="balance_symbol">undefined</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="el-form-item is-required asterisk-left amount up-form-item amount">
+                        <!--v-if-->
+                        <div class="el-form-item__content" id="amount-input">
+                            <div class="el-input el-input--prefix el-input--suffix up-input">
+                                <!-- input -->
+                                <!-- prepend slot -->
+                                <!--v-if-->
+                                <div class="el-input__wrapper">
+                                    <!-- prefix slot -->
+                                    <span class="el-input__prefix">
+											<span class="el-input__prefix-inner">
+												<div class="left"></div>
+												<div class="center"></div>
+												<div class="right"></div>
+												<div class="bottom"></div>
+                                                <!--v-if-->
+											</span>
+										</span>
+                                    <input class="el-input__inner" modelmodifiers="[object Object]" type="text" autocomplete="off" tabindex="0" placeholder="0" required id="el-id-2950-7"><!-- suffix slot -->
+                                    <span class="el-input__suffix">
+											<span class="el-input__suffix-inner">
+<!--												<div class="up-dollar" symbol="ETH">~</div>-->
+<!--												<div class="line"></div>-->
+<!--												<button class="el-button is-link" aria-disabled="false" type="button">-->
+<!--													&lt;!&ndash;v-if&ndash;&gt;-->
+<!--													<span class="">最大</span>-->
+<!--												</button>-->
+                                                <!--v-if-->
+                                                <!--v-if-->
+                                                <!--v-if-->
+                                                <!--v-if-->
+                                                <!--v-if-->
+											</span>
+										</span>
+                                </div><!-- append slot -->
+                                <!--v-if-->
+                            </div>
+                            <!--v-if-->
+                        </div>
+                    </div>
+                </div>
+                <div class="label" style="color: white">To</div>
+                <div class="el-form-item is-required asterisk-left to-address up-form-item to-address">
+                    <!--v-if-->
+                    <div class="el-form-item__content" id="address-input">
+                        <div class="el-input el-input--prefix el-input--suffix up-input">
+                            <!-- input -->
+                            <!-- prepend slot -->
+                            <!--v-if-->
+                            <div class="el-input__wrapper">
+                                <!-- prefix slot -->
+                                <span class="el-input__prefix">
+										<span class="el-input__prefix-inner">
+											<div class="left"></div>
+											<div class="center"></div>
+											<div class="right"></div>
+											<div class="bottom"></div>
+                                            <!--v-if-->
+										</span>
+									</span>
+                                <input class="el-input__inner" modelmodifiers="[object Object]" spellcheck="false" type="text" autocomplete="off" tabindex="0" placeholder="address (0x)" required id="el-id-2950-8"><!-- suffix slot -->
+                                <span class="el-input__suffix">
+										<span class="el-input__suffix-inner">
+											<iconpark-icon icon-id="loading" class="iconpark icon-loading is-loading" style="display: none;" name="" size="1em" width="" height=""></iconpark-icon>
+                                            <!--v-if-->
+                                            <!--v-if-->
+                                            <!--v-if-->
+                                            <!--v-if-->
+                                            <!--v-if-->
+										</span>
+									</span>
+                            </div><!-- append slot -->
+                            <!--v-if-->
+                        </div>
+                        <!--v-if-->
+                    </div>
+                </div>
+<!--                <div class="tips">-->
+<!--                    <iconpark-icon icon-id="exclamation-point" class="iconpark icon-exclamation-point icon" name="" size="1em" width="" height=""></iconpark-icon>-->
+<!--                    <span>请确保收款地址不是交易所的充值地址</span>-->
+<!--                    <div class="full-tips">交易所暂不支持来自合约钱包的原生代币充值，您有可能因此丢失充值的资产</div>-->
+<!--                </div>-->
+                <!---->
+                <button class="el-button el-button--primary submit up-button submit" aria-disabled="false" id="next-step-button" type="button">
+                    <!--v-if-->
+                    <span class="">Next Step</span>
+                </button>
+            </form>
+        </div>
+        <div class="el-overlay" style="z-index: 2001; display: none;">
+            <div role="dialog" aria-modal="true" aria-labelledby="el-id-2950-0" aria-describedby="el-id-2950-1" class="el-overlay-dialog"></div>
+        </div>
+        <div class="el-overlay" style="z-index: 2002; display: none;">
+            <div aria-modal="true" aria-labelledby="el-id-2950-2" aria-describedby="el-id-2950-3" class="el-drawer rtl up-header-more" role="dialog" style="width: 290px;">
+                <span class="el-drawer__sr-focus" tabindex="-1"></span>
+                <header class="el-drawer__header">
+                    <span id="el-id-2950-2" role="heading" class="el-drawer__title"></span>
+                    <button aria-label="Close this dialog" class="el-drawer__close-btn" type="button">
+                        <i class="el-icon el-drawer__close">
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+                            </svg>
+                        </i>
+                    </button>
+                </header>
+                <!--v-if-->
+                <!--v-if-->
+            </div>
+        </div>
+        <div class="el-overlay" style="z-index: 2003; display: none;">
+            <div role="dialog" aria-modal="true" aria-label="安全验证" aria-describedby="el-id-2950-4" class="el-overlay-dialog"></div>
+        </div>
+        <!---->
+    </div>
+    <div class="el-overlay" id="transaction-confirm" style="z-index: 2012; display: none">
+        <div role="dialog" aria-modal="true" aria-labelledby="el-id-3005-6" aria-describedby="el-id-3005-7" class="el-overlay-dialog">
+            <div class="el-dialog el-dialog--center drawer-receive-dialog" tabindex="-1" style="background-color: rgb(62 56 106);">
+                <header class="el-dialog__header">
+                    <span role="heading" class="el-dialog__title"></span>
+                    <!--v-if-->
+                </header>
+                <div id="el-id-3005-7" class="el-dialog__body">
+                    <div>
+                        <div id="receive-dialog" data-v-7bb2b20a="">
+                            <div class="title" id="title-confirm" data-v-7bb2b20a="" style="display: flex; justify-content: center">
+                                <span data-v-7bb2b20a="" style="font-weight: bolder;font-size: 1.2em;color: white;">Confirm Transaction</span>
+                            </div>
+<!--                            <div class="amount-confirm-text">转账金额</div>-->
+<!--                            <div class="amount" id="amount-confirm" data-v-7bb2b20a="">1</div>-->
+<!--                            <div class="address-confirm-text">转账地址</div>-->
+<!--                            <div class="address" id="address-confirm" data-v-7bb2b20a="">0x3909dcd11cb041b59de4613d2196493611ed4fd7</div>-->
+
+<!--                            <div id="confirm-button" style="margin-top: 20px;">-->
+<!--                                <button class="el-button el-button&#45;&#45;primary copy up-button copy" aria-disabled="false" type="button" data-v-7bb2b20a="" style="width: 28%;height: 46px;margin-right: 60px;margin-left: 20px;">-->
+<!--                                    <span class="">确认</span>-->
+<!--                                </button>-->
+<!--                                <button class="el-button el-button&#45;&#45;primary copy up-button copy" aria-disabled="false" type="button" data-v-7bb2b20a="" style="width: 28%;height: 46px; background: linear-gradient(320deg, #bdb8d1 0, #bdb8d1 100%);">-->
+<!--                                    <span class="">取消</span>-->
+<!--                                </button>-->
+<!--                            </div>-->
+                            <webauthn-transaction></webauthn-transaction>
+                        </div>
+                    </div>
+                </div>
+                <!--v-if-->
+            </div>
+        </div>
+    </div>
+    <!---->
+</div>
+<script src="./iconpark.329803f7.js" type="text/javascript"></script>
+<!--<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon="{&quot;rayId&quot;:&quot;7bd44b2c69bf2106&quot;,&quot;version&quot;:&quot;2023.3.0&quot;,&quot;b&quot;:1,&quot;token&quot;:&quot;9a691607f17b42529e0ce092631c5f51&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>-->
+<script type="text/javascript">
+    const urlParams = new URLSearchParams(window.location.search);
+    const symbol = urlParams.get('symbol');
+    const chain = urlParams.get('chain');
+    let indexTitle =  document.querySelector(".index-title");
+    indexTitle.style.color = "white";
+
+    if(symbol === "ETH" || symbol === "USDT" || symbol === "USDC"){
+        $('#balance_symbol').text(symbol);
+        indexTitle.innerHTML = symbol;
+        let icons = document.getElementsByTagName("iconpark-icon");
+        icons[1].setAttribute("icon-id", symbol);
+        icons[1].className = "iconpark icon-" + symbol + " box-token";
+    }
+</script>
+<script type="text/javascript">
+    document.getElementById("next-step-button").addEventListener('click', function (){
+        const inputVal = ethAddressInput.value;
+        let addressInput = document.getElementById("address-input");
+        let errorNode = addressInput.querySelector(".error");
+        //判断地址输入是否为空
+        if(inputVal === null || inputVal === ''){
+            if(errorNode !== null){
+                addressInput.removeChild(errorNode);
+            }
+
+            const errorDiv = document.createElement("div");
+            errorDiv.className = "error";
+            errorDiv.innerHTML = `<iconpark-icon icon-id="wrong" class="iconpark icon-wrong" name="" size="1em" width="" height=""></iconpark-icon>请输入转账地址 (0x)`
+            document.getElementById("address-input").appendChild(errorDiv);
+        }
+
+        //判断金额输入是否为空
+        const amountInputVal = amountInput.value;
+        if(amountInputVal === null || amountInputVal === ''){
+            createErrorDiv(amountDiv, "请输入转账金额")
+        }
+
+        if(document.querySelector(".error") === null){
+
+            const amount = document.getElementById("el-id-2950-7").value;
+            const to = document.getElementById("el-id-2950-8").value;
+            const username = localStorage.getItem
+("username");
+            const from = localStorage.getItem
+(username+"_select_address");
+
+            let confirmNodeParent = document.querySelector("webauthn-transaction").parentNode;
+            confirmNodeParent.removeChild(document.querySelector("webauthn-transaction"));
+            let confirmTitleNode = document.getElementById("title-confirm");
+            confirmTitleNode.insertAdjacentHTML("afterend", `<webauthn-transaction symbol=${symbol} amount=${amount} from=${from} to=${to}></webauthn-transaction>`);
+            addCancelEvent();
+
+            document.getElementById("transaction-confirm").setAttribute("style", "z-index: 2012;");
+        }
+    })
+    function addCancelEvent(){
+        let webauthnTransaction = document.querySelector('webauthn-transaction');
+        let cancelButton = webauthnTransaction.shadowRoot.querySelector('#confirm-button-cancel');
+        cancelButton.addEventListener('click', function (){
+            document.getElementById("transaction-confirm").setAttribute("style", "z-index: 2012; display: none");
+        })
+    }
+</script>
+<script type="text/javascript" src="js/const/fido-api-constants.js"></script>
+<script type="text/javascript" src="js/send.js"></script>
+<script src="js/utils/common.js"></script>
+</body>
+<div style="all: initial;">
+    <div id="__hcfy__" style="all: initial;"></div>
+</div>
+</html>
