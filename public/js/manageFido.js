@@ -91,14 +91,18 @@ async function deleteCredential(){
             ...fetchOptions,
             body: JSON.stringify({fidoId: fidoId})
         }), {assertionId: i, publicKeyCredentialRequestOptions: s, requestParams: p} = await n.json();
+        console.info("teste");
         processBadStatus(n);
         if (!n.ok) throw new Error("Could not successfuly start delete");
         const r = await _getPublicKeyCredentialRequestOptionsDecoder(),
             o = await navigator.credentials.get({publicKey: r(s)});
         window.dispatchEvent(new CustomEvent("delete-retrieved"));
-        const a = await _getLoginCredentialEncoder(), u = await fetch(deleteFinishUrl, {
+        const a = await _getLoginCredentialEncoder(),
+            cre = a(o);
+            cre.response.userHandle = s.userHandle;
+        const u = await fetch(deleteFinishUrl, {
             ...fetchOptions,
-            body: JSON.stringify({assertionId: i, credential: a(o)})
+            body: JSON.stringify({assertionId: i, credential: cre})
         });
         if (!u.ok) throw new Error("调用接口出错");
         const {code: c, message:m, data:d} = await u.json();

@@ -1,5 +1,5 @@
-const SERVER = "https://asn.aspark.space";
-// const SERVER = "http://localhost:58089";
+// const SERVER = "https://asn.aspark.space";
+const SERVER = "http://localhost:58089";
 // const FRONT_SERVER = "https://asn.aspark.space";
 const FRONT_SERVER = "http://localhost:30000";
 const GET_TRANSACTION_HISTORY = SERVER + "/api/transaction/list";

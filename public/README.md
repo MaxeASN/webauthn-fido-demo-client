@@ -1,1 +1,0 @@
-# webauthn-fido-demo-client

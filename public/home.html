@@ -106,13 +106,20 @@
                     </div>
                     <div class="user-icon">
                     </div>    
-                    <a class="setting" id="logout" style="position:absolute;left: 630px; top:27px; border: 1px solid; width: 100px; border-radius: 10px;text-align: center;color: white;">
+                    <a class="setting" id="logout" style="position:absolute;left: 630px; top:15px; border: 1px solid; width: 100px; border-radius: 10px;text-align: center;color: white;">
                         LOG OUT
                         <!-- <iconpark-icon icon-id="exit" class="iconpark icon-exit" name="" size="2em" width="" height="" title="登出"></iconpark-icon> -->
                     </a>
+                    <a class="setting" id="addfido" @click="addFido" style="position:absolute;left: 630px; top:45px; border: 1px solid; width: 100px; border-radius: 10px;text-align: center;color: white;">
+                        Add Fido
+                        <!-- <iconpark-icon icon-id="exit" class="iconpark icon-exit" name="" size="2em" width="" height="" title="登出"></iconpark-icon> -->
+                    </a>
+
                 </div>
-            
+
+
             </div>
+
             <div class="up-loading" style="display: none;">
                 <div class="loader">
                     <div class="orbe" style="--index:0;"></div>
@@ -327,6 +334,7 @@
                             </div>
                             <iconpark-icon icon-id="loading" class="iconpark icon-loading is-loading duration" style="display: none;" name="" size="1em" width="" height=""></iconpark-icon>
                         </div>
+
                     </div>
                     <div class="shortcut" style="margin-top:20px;">
                         <div class="btn-box" onclick="openScan()">
@@ -695,6 +703,11 @@
                     showMpcConfirm:false,
                     showMpcSuccess:false,
                     node_id:"1",
+                    fetchOptions: {
+                        method: "POST",
+                        credentials: "include",
+                        headers: {"Content-Type": "application/json"}
+                    },
                 }
             },
             computed: {
@@ -745,6 +758,57 @@
                         customClass: "up-message-error",
                         duration: 2000
                     });
+                },
+                async _getPublicKeyCredentialCreateOptionsDecoder() {
+                    const {decodePublicKeyCredentialCreateOptions: e} = await import("../js/utils/parse.js");
+                    return e
+                },
+                async _getRegisterCredentialEncoder() {
+                    const {encodeRegisterCredential: e} = await import("../js/utils/parse.js");
+                    return e
+                },
+                async addFido() {
+                    let username = localStorage.getItem("username");
+                    console.info(username);
+                    const registrationAddStartUrl = SERVER + "/api/diyRegister/add_start";
+                    const registrationAddFinishUrl = SERVER + "/api/diyRegister/add_finish";
+                    try {
+                        if (!window.PublicKeyCredential) {
+                            alert("Fido is not supported on this browser");
+                            throw new Error("Web Authentication is not supported on this platform");
+                        }
+
+                        const i = await fetch(registrationAddStartUrl, {
+                            ...this.fetchOptions,
+                            body: JSON.stringify({username: username})
+                        }), {status: r, registrationId: n, publicKeyCredentialCreationOptions: s, message: m1} = await i.json();
+
+                        if (!i.ok) {
+                            alert(m1);
+                            throw new Error(m1 || "Could not successfuly start registration");
+                        }
+                        // add by mark   need to delete---------------------------
+                        s.user.id = "DEMO//9fX19ERU1P";
+                        // add by mark   need to delete---------------------------
+                        const o = await this._getPublicKeyCredentialCreateOptionsDecoder(),
+                            a = await navigator.credentials.create({publicKey: o(s)});
+
+                        const u = await this._getRegisterCredentialEncoder(), l = await fetch(registrationAddFinishUrl, {
+                            ...this.fetchOptions,
+                            body: JSON.stringify({registrationId: n, credential: u(a), userAgent: window.navigator.userAgent})
+                        }), c = await l.json();
+                        if (!l.ok) {
+                            alert(c.message);
+                            throw new Error(c.message || "Could not successfuly complete registration");
+                        }else {
+                            alert("添加成功");
+                        }
+                    } catch (t) {
+                        if(t.name=='NotAllowedError'){
+                            alert("The current device is already registered, or something went wrong.");
+                        }
+                        console.error(t.message);
+                    }
                 },
                 copySelectAddress: function (){
                     let username = localStorage.getItem

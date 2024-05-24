@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MaxeLabs</title>
+  <style>
+    body {
+      background-image: url("img/background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<script>
+  document.addEventListener("DOMContentLoaded", async function() {
+    // 解析参数
+    const params = new URLSearchParams(window.location.search);
+    const redirectUrl = params.get('redirect');
+    const result = await addfido();
+    const fidolist = await updatelist();
+    const isPopup = window.opener !== null;
+    if(isPopup) {  // 说明是从solo-mission跳过去的
+      window.opener.postMessage({
+        type: 'Success',
+        msg: result,
+        fidolist: fidolist,
+      }, redirectUrl);
+      window.close();
+    }
+
+    async function updatelist() {
+      try {
+        const response = await fetch(GET_CREDENTIALS, {credentials: 'include'});
+        const { code: c, message: m, data: d } = await response.json();
+        await processBadResponse(c);
+        if (c !== 1) throw new Error(m);
+        return d.map(item => ({fidoId: item}));
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    }
+
+    async function addfido() {
+      const username = localStorage.getItem("username");
+      const registrationAddStartUrl = SERVER + "/api/diyRegister/add_start";
+      const registrationAddFinishUrl = SERVER + "/api/diyRegister/add_finish";
+      const fetchOptions = {
+        method: "POST",
+        credentials: "include",
+        headers: {"Content-Type": "application/json"}
+      };
+      try {
+        if (!window.PublicKeyCredential) {
+          alert("Fido is not supported on this browser");
+          throw new Error("Web Authentication is not supported on this platform");
+        }
+
+        const response = await fetch(registrationAddStartUrl, {
+          ...fetchOptions,
+          body: JSON.stringify({username: username})
+        });
+        const {status: r, registrationId: n, publicKeyCredentialCreationOptions: s, message: m1} = await response.json();
+
+        if (!response.ok) {
+          alert(m1);
+          throw new Error(m1 || "Could not successfuly start registration");
+        }
+
+        // add by mark   need to delete---------------------------
+        s.user.id = "DEMO//9fX19ERU1P";
+        // add by mark   need to delete---------------------------
+
+        const o = await _getPublicKeyCredentialCreateOptionsDecoder();
+        const a = await navigator.credentials.create({publicKey: o(s)});
+
+        const u = await _getRegisterCredentialEncoder();
+        const finishResponse = await fetch(registrationAddFinishUrl, {
+          ...fetchOptions,
+          body: JSON.stringify({
+            registrationId: n,
+            credential: u(a),
+            userAgent: window.navigator.userAgent
+          })
+        });
+        const finishResult = await finishResponse.json();
+
+        if (!finishResponse.ok) {
+          return "Could not successfully complete registration";
+        } else {
+          return "success";
+        }
+      } catch (t) {
+        console.error(t.message);
+        return "The current device is already registered, or something went wrong.";
+      }
+    }
+
+    async function _getPublicKeyCredentialCreateOptionsDecoder() {
+      const {decodePublicKeyCredentialCreateOptions: e} = await import("../js/utils/parse.js");
+      return e;
+    }
+
+    async function _getRegisterCredentialEncoder() {
+      const {encodeRegisterCredential: e} = await import("../js/utils/parse.js");
+      return e;
+    }
+  });
+</script>
+<script type="text/javascript" src="js/const/fido-api-constants.js"></script>
+<script src="js/utils/common.js"></script>
+</body>
+</html>

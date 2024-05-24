@@ -7,7 +7,7 @@ class e extends HTMLElement {
             method: "POST",
             credentials: "include",
             headers: {"Content-Type": "application/json"}
-        }
+        }, this.getUserInFoUrl = SERVER + "/api/userInfo", this.getFidoListUrl = SERVER + "/api/credential/list"
         const params = new URLSearchParams(window.location.search);
         const redirectUrl = params.get('redirect');
         if(redirectUrl) {
@@ -226,8 +226,10 @@ class e extends HTMLElement {
                 throw new Error("Could not successfuly complete login");
             }
             const l = await u.json();
+
             const redirectUrl = localStorage.getItem('redirect');
             const isPopup = window.opener !== null;
+
             if(isPopup) {  // 说明是从solo-mission跳过去的
                 window.opener.postMessage({
                     type: 'loginSuccess',
@@ -236,6 +238,7 @@ class e extends HTMLElement {
                 }, redirectUrl);
                 window.close();
             }
+
             this.dispatchEvent(new CustomEvent("login-finished", {detail: l}))
         } catch (t) {
             this.dispatchEvent(new CustomEvent("login-error", {detail: {message: t.message}}))

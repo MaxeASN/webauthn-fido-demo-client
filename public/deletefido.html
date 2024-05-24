@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MaxeLabs</title>
+  <style>
+    body {
+      background-image: url("img/background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<script>
+  document.addEventListener("DOMContentLoaded", async function() {
+    // 解析参数
+    const params = new URLSearchParams(window.location.search);
+    const redirectUrl = params.get('redirect');
+    const fidoId = params.get('fidoId');
+    const result = await deletefido(fidoId);
+    const fidolist = await updatelist();
+    const isPopup = window.opener !== null;
+    if(isPopup) {  // 说明是从solo-mission跳过去的
+      window.opener.postMessage({
+        type: 'Success',
+        msg: result,
+        fidolist: fidolist,
+      }, redirectUrl);
+      window.close();
+    }
+
+    async function updatelist() {
+      try {
+        const response = await fetch(GET_CREDENTIALS, {credentials: 'include'});
+        const { code: c, message: m, data: d } = await response.json();
+        await processBadResponse(c);
+        if (c !== 1) throw new Error(m);
+        return d.map(item => ({fidoId: item}));
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    }
+
+    async function deletefido(fidoId) {
+      const deleteStartUrl = SERVER + "/api/credential/delete/start";
+      const deleteFinishUrl = SERVER + "/api/credential/delete/finish";
+      const fetchOptions = {
+        method: "POST",
+        credentials: "include",
+        headers: {"Content-Type": "application/json"}
+      };
+      try {
+        if (!window.PublicKeyCredential) {
+          alert("Fido is not supported on this browser");
+          throw new Error("Web Authentication is not supported on this platform");
+        }
+        window.dispatchEvent(new CustomEvent("delete-credential-started"));
+        const n = await fetch(deleteStartUrl, {
+          ...fetchOptions,
+          body: JSON.stringify({fidoId: fidoId})
+        }), {assertionId: i, publicKeyCredentialRequestOptions: s, requestParams: p} = await n.json();
+        processBadStatus(n);
+        if (!n.ok) throw new Error("Could not successfuly start delete");
+        const r = await _getPublicKeyCredentialRequestOptionsDecoder(),
+                o = await navigator.credentials.get({publicKey: r(s)});
+        window.dispatchEvent(new CustomEvent("delete-retrieved"));
+        const a = await _getLoginCredentialEncoder(),
+                cre = a(o);
+        cre.response.userHandle = s.userHandle;
+        const u = await fetch(deleteFinishUrl, {
+          ...fetchOptions,
+          body: JSON.stringify({assertionId: i, credential: cre})
+        });
+        if (!u.ok) return "somthing wrong";
+        const {code: c, message: m, data: d} = await u.json();
+        processBadResponse(c);
+        if (c != 1) {
+          return "somthing wrong";
+        }
+        return "delete success";
+      } catch (t) {
+        return "somthing wrong";
+        throw new Error(t.message);
+      }
+    }
+
+    async function _getPublicKeyCredentialRequestOptionsDecoder() {
+      const {decodePublicKeyCredentialRequestOptions: e} = await import("../js/utils/parse.js");
+      return e
+    }
+    async function _getLoginCredentialEncoder() {
+      const {encodeLoginCredential: e} = await import("../js/utils/parse.js");
+      return e
+    }
+  });
+</script>
+<script type="text/javascript" src="js/const/fido-api-constants.js"></script>
+<script src="js/utils/common.js"></script>
+</body>
+</html>

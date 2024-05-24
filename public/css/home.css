@@ -214,9 +214,9 @@
         width: 100px;
         height: 100px;
     }
-    .user-container, .page-dapp, .page-nft, .dapp-banner, .assets-banner, .nft-banner {
-        display: none;
-    }
+    /*.user-container, .page-dapp, .page-nft, .dapp-banner, .assets-banner, .nft-banner {*/
+    /*    display: none;*/
+    /*}*/
 
 }
 @media (orientation: landscape) and (max-width: 980px) {
